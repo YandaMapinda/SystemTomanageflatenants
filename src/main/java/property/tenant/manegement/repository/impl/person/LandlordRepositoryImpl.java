@@ -1,7 +1,7 @@
-package property.tenant.manegement.repository.impl;
+package property.tenant.manegement.repository.impl.person;
 
 import property.tenant.manegement.domain.person.Landlord;
-import property.tenant.manegement.repository.LandlordRepository;
+import property.tenant.manegement.repository.person.LandlordRepository;
 
 import java.util.HashSet;
 import java.util.Set;
