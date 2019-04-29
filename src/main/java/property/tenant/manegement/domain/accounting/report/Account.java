@@ -1,17 +1,17 @@
 package property.tenant.manegement.domain.accounting.report;
 
 public class Account {
-    private int account_no;
+    private String account_no;
     private String account_name;
     private boolean is_active;
 
-    private Account(){}
+    public Account(){}
     private Account(Builder builder){
         this.account_name=builder.account_name;
-        this.account_no=builder.account_no;
+        this.account_no =builder.account_no;
     }
 
-    public int getAccount_no() {
+    public String getAccount_no() {
         return account_no;
     }
 
@@ -24,9 +24,9 @@ public class Account {
     }
     public static class Builder {
         private String account_name;
-        private int account_no;
+        private String account_no;
 
-        public Builder account_no(int account_no) {
+        public Builder account_no(String account_no) {
             this.account_no = account_no;
             return this;
         }

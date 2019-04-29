@@ -2,15 +2,15 @@ package property.tenant.manegement.domain.accounting.report;
 
 public class Receipts {
     private int payment_id,payment_type_id,period_id,property_id,rental_id;
-    private String payment_number,payment_date,property_name,tenant_name;
+    private String payment_number,payment_date,property_name,tenant_name,id;
     private double account_credit;
     private double balance;
 
-    private Receipts(){}
+    public Receipts(){}
     private Receipts(Builder builder){
         this.tenant_name=builder.tenant_name;
         this.balance=builder.balance;
-        ///this.payment_date=builder.payment_date;
+        this.id=builder.id;
     }
 
     public int getPayment_id() {
@@ -49,6 +49,10 @@ public class Receipts {
         return tenant_name;
     }
 
+    public String getId() {
+        return id;
+    }
+
     public double getAccount_credit() {
         return account_credit;
     }
@@ -57,7 +61,7 @@ public class Receipts {
         return balance;
     }
     public static class Builder {
-        private String tenant_name;
+        private String tenant_name,id;
         private double balance;
 
         public Builder balance(double balance) {
@@ -67,6 +71,10 @@ public class Receipts {
 
         public Builder tenant_name(String tenant_name) {
             this.tenant_name = tenant_name;
+            return this;
+        }
+        public Builder id(String id) {
+            this.id = id;
             return this;
         }
         public Receipts build() {

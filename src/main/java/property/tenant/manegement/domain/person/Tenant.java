@@ -1,15 +1,19 @@
 package property.tenant.manegement.domain.person;
 
-public class Tenant {
-    private String name;
+import property.tenant.manegement.factory.person.factory.Person;
+
+import java.util.Set;
+
+public class Tenant extends Person{
+    /*private String name;
     private String surname;
-    private String phoneNum;
+    private String phoneNum;*/
     private boolean is_active,employed;
 
     Person person;
     Address contact;
 
-    private Tenant(){
+    public Tenant(){super();
     }
     private Tenant(Builder builder){
         //this.idNum = builder.idNum;
@@ -36,6 +40,7 @@ public class Tenant {
     public static class Builder{
         private String name,surname,phoneNum;
         private long idNum;
+        private Set<Person> personSet;
         public Builder name(String name) {
             this.name=name;
             return this;

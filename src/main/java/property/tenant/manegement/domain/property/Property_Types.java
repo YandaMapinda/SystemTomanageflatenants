@@ -1,11 +1,15 @@
 package property.tenant.manegement.domain.property;
 
-public class Property_Types {
+import java.util.Set;
+
+public class Property_Types extends Property{
     private int property_type_id;
     private String property_type_name;
     private boolean commercial_property;
 
-    private Property_Types(){}
+    protected Property_Types(){
+        super();
+    }
     private Property_Types(Builder builder){
         this.property_type_name=builder.property_type_name;
     }
@@ -23,7 +27,7 @@ public class Property_Types {
     }
     public static class Builder {
         private String property_type_name;
-
+        private Set<Property>propertySet;
 
         public Builder property_type_name(String property_type_name) {
             this.property_type_name = property_type_name;

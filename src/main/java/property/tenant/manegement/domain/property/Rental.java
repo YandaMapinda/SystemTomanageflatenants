@@ -10,7 +10,7 @@ public class Rental {
     private int rental_id,property_id,tenant_id,unit_id;
     private boolean is_active;
 
-    private Rental(){}
+    public Rental(){}
     private Rental(Builder builder){
         this.rate=builder.rate;
         this.term=builder.term;

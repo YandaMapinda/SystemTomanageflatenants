@@ -1,19 +1,35 @@
 package property.tenant.manegement.domain.person;
 
-public class Landlord {
-    private String name,email;
+import property.tenant.manegement.factory.person.factory.Person;
+
+import java.util.Set;
+
+public class Landlord extends Person {
+    /*private String name,email;
     private String surname;
     private String phoneNum;
-
+*/private String landlordId;
     Person person;
     Address contact;
 
-    private Landlord(){}
+    public Landlord(){}
     private Landlord(Builder builder){
         this.email = builder.email;
         this.name = builder.name;
         this.surname = builder.surname;
         this.phoneNum = builder.phoneNum;
+    }
+
+    public String getLandlordId() {
+        return landlordId;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public Address getContact() {
+        return contact;
     }
 
     public String getName() {
@@ -36,7 +52,7 @@ public class Landlord {
 
     public static class Builder{
         private String name,surname,phoneNum,email;
-
+        private Set<Person> personSet;
         public Builder name(String name) {
             this.name=name;
             return this;

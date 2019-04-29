@@ -1,6 +1,8 @@
 package property.tenant.manegement.domain.property;
 
-public class Lease_Transfer {
+import java.util.Set;
+
+public class Lease_Transfer extends Lease{
     private int lease_transfer_id,tenant_id,property_id,from_property_lease_id,property_lease_id;
     private String transfer_date,transfer_status;
 
@@ -44,6 +46,7 @@ public class Lease_Transfer {
     public static class Builder {
         private int tenant_id,from_property_lease_id;
         private String transfer_date;
+        private Set<Lease> leaseSet;
 
         public Builder transfer_date(String transfer_date) {
             this.transfer_date = transfer_date;

@@ -1,12 +1,12 @@
 package property.tenant.manegement.domain.property;
 
 public class Property {
-    private String address,flatNum,name,flatType;
+    private String property_id,address,flatNum,name,flatType;
     private int phoneNum;
-    private int property_id,landlord_id;
+    private int landlord_id;
     private double amount;
 
-    private Property(){}
+    protected Property(){}
     private Property(Builder builder){
        this.address= builder.address;
        this.amount=builder.amount;
@@ -17,7 +17,7 @@ public class Property {
 
 
     }
-    public int getProperty_id() {
+    public String getProperty_id() {
         return property_id;
     }
 

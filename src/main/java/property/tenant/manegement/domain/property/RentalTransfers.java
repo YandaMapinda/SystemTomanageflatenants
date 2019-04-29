@@ -1,6 +1,8 @@
 package property.tenant.manegement.domain.property;
 
-public class RentalTransfers {
+import java.util.Set;
+
+public class RentalTransfers extends Rental{
     private int rental_transfer_id,tenant_id,rental_id,from_unit_id,unit_id;
     private String transfer_date,status;
 
@@ -41,7 +43,7 @@ public class RentalTransfers {
 
     public static class Builder {
         private int rental_transfer_id,from_unit_id;
-
+        private Set<Rental>rentalSet;
         public Builder rental_transfer_id(int rental_transfer_id) {
             this.rental_transfer_id = rental_transfer_id;
             return this;

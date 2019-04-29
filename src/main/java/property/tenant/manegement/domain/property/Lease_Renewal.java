@@ -1,7 +1,9 @@
 package property.tenant.manegement.domain.property;
 
-public class Lease_Renewal {
-    private int lease_renewal_id,property_lease_id;
+import java.util.Set;
+
+public class Lease_Renewal extends Lease{
+    private int lease_renewal_id;
     private String renewal_date,previous_end_date,new_lease_end_date,new_lease_period;
     private double lease_amount,renewal_charges;
 
@@ -18,9 +20,6 @@ public class Lease_Renewal {
         return lease_renewal_id;
     }
 
-    public int getProperty_lease_id() {
-        return property_lease_id;
-    }
 
     public String getRenewal_date() {
         return renewal_date;
@@ -47,6 +46,7 @@ public class Lease_Renewal {
     }
     public static class Builder {
         private String new_lease_end_date, new_lease_period, renewal_date;
+        private Set<Lease> leaseSet;
 
         public Builder new_lease_end_date(String new_lease_end_date) {
             this.new_lease_end_date = new_lease_end_date;

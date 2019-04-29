@@ -1,11 +1,15 @@
 package property.tenant.manegement.domain.property;
 
-public class Log_Rentals {
+import java.util.Set;
+
+public class Log_Rentals extends Rental{
     private int log_rentals_id,rental_id,property_id,tenant_id,unit_id;
     private String start_rent,end_rent,elec_no,water_no,deposit_fee_date;
     private double deposit_fee,rental_value;
 
-    private Log_Rentals(){}
+    private Log_Rentals(){
+        super();
+    }
     private Log_Rentals(Builder builder){
         this.elec_no=builder.elec_no;
     }
@@ -60,7 +64,7 @@ public class Log_Rentals {
 
     public static class Builder {
         private String elec_no;
-
+        private Set<Rental> rentalSet;
 
         public Builder elec_no(String elec_no) {
             this.elec_no = elec_no;

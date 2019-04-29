@@ -4,7 +4,7 @@ public class Address {
     private String street_name,city;
     private int zip,street_num;
 
-   private Address(){}
+   protected Address(){}
     private Address(Builder builder){
         this.street_name= builder.street_name;
         this.city= builder.city;

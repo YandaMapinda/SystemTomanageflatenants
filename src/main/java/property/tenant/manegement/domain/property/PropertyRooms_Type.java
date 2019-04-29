@@ -1,10 +1,14 @@
 package property.tenant.manegement.domain.property;
 
-public class PropertyRooms_Type {
+import java.util.Set;
+
+public class PropertyRooms_Type extends PropertyRooms{
     private int unit_type_id;
     private String unit_type_name;
 
-    private PropertyRooms_Type(){}
+    private PropertyRooms_Type(){
+        super();
+    }
     private PropertyRooms_Type(Builder builder){
         this.unit_type_name=builder.unit_type_name;
     }
@@ -19,7 +23,7 @@ public class PropertyRooms_Type {
 
     public static class Builder {
         private String unit_type_name;
-
+        private Set<PropertyRooms>propertyRoomsSet;
 
         public Builder unit_type_name(String unit_type_name) {
             this.unit_type_name = unit_type_name;

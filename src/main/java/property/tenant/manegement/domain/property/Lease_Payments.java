@@ -1,11 +1,16 @@
 package property.tenant.manegement.domain.property;
 
-public class Lease_Payments {
-    private  int lease_payment_id,payment_type_id,period_id,property_id,property_lease_id;
+import java.util.Set;
+
+public class Lease_Payments extends Lease{
+    private  int lease_payment_id,payment_type_id,period_id;
     private String payment_date;
     private double balance;
+    Lease lease;
 
-    private Lease_Payments(){}
+    private Lease_Payments(){
+        super();
+    }
     private Lease_Payments(Builder builder){
        this.lease_payment_id =builder.lease_payment_id;
        this.payment_date=builder.payment_date;
@@ -23,13 +28,6 @@ public class Lease_Payments {
         return period_id;
     }
 
-    public int getProperty_id() {
-        return property_id;
-    }
-
-    public int getProperty_lease_id() {
-        return property_lease_id;
-    }
 
     public String getPayment_date() {
         return payment_date;
@@ -41,7 +39,7 @@ public class Lease_Payments {
     public static class Builder {
         private String payment_date;
         private int lease_payment_id;
-
+        private Set<Lease> leaseSet;
         public Builder lease_payment_id(int lease_payment_id) {
             this.lease_payment_id = lease_payment_id;
             return this;

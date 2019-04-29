@@ -1,6 +1,8 @@
 package property.tenant.manegement.domain.property;
 
-public class Period_Rentals {
+import java.util.Set;
+
+public class Period_Rentals extends Rental{
     private int period_rental_id,rental_id,period_id,property_id,tenant_id;
     private double rental_amount,service_fees,repair_amount;
     private String status;
@@ -52,6 +54,7 @@ public class Period_Rentals {
     public static class Builder {
         private int period_id;
         private double repair_amount, service_fees;
+        private Set<Rental> rentalSet;
 
         public Builder period_id(int period_id) {
             this.period_id = period_id;

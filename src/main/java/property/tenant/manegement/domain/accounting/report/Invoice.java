@@ -1,15 +1,16 @@
 package property.tenant.manegement.domain.accounting.report;
 
 public class Invoice {
-    private String payment_number,payment_date,property_name,tenant_name;
+    private String payment_number,payment_date,property_name,tenant_name,invoiceId;
     private String status,rental_period;
     private int payment_id,payment_type_id,period_id,property_id,rental_id;
     private double rental_amount;
 
-    private Invoice(){}
+    public Invoice(){}
     private Invoice(Builder builder){
         this.payment_date=builder.payment_date;
         this.rental_amount=builder.rental_amount;
+        this.invoiceId=builder.invoiceId;
     }
 
     public String getPayment_number() {
@@ -56,12 +57,16 @@ public class Invoice {
         return rental_id;
     }
 
+    public String getInvoiceId() {
+        return invoiceId;
+    }
+
     public double getRental_amount() {
         return rental_amount;
     }
 
     public static class Builder {
-        private String payment_date;
+        private String payment_date,invoiceId;
         private double rental_amount;
 
         public Builder rental_amount(double bank_account_number) {
@@ -69,6 +74,10 @@ public class Invoice {
             return this;
         }
 
+        public Builder invoiceId(String invoiceId) {
+            this.invoiceId = invoiceId;
+            return this;
+        }
         public Builder payment_date(String payment_date) {
             this.payment_date = payment_date;
             return this;

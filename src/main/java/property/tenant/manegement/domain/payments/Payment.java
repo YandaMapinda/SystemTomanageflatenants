@@ -1,17 +1,17 @@
 package property.tenant.manegement.domain.payments;
 
 public class Payment {
-    private int payment_id,payment_type_id,period_id,property_id,rental_id;
-    private String payment_date;
+    private int payment_type_id,period_id,property_id,rental_id;
+    private String payment_date,payment_id;
     private String account_type_name;
 
-    private Payment(){}
+    public Payment(){}
     private Payment(Builder builder){
         this.payment_date=builder.payment_date;
         this.account_type_name=builder.account_type_name;
     }
 
-    public int getPayment_id() {
+    public String getPayment_id() {
         return payment_id;
     }
 
