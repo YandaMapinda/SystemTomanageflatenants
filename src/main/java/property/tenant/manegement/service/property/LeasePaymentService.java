@@ -1,0 +1,10 @@
+package property.tenant.manegement.service.property;
+
+import property.tenant.manegement.domain.property.Lease_Payments;
+import property.tenant.manegement.service.IService;
+
+import java.util.Set;
+
+public interface LeasePaymentService extends IService<Lease_Payments, String> {
+    Set<Lease_Payments>getAll();
+}

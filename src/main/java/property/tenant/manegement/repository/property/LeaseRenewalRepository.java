@@ -6,5 +6,5 @@ import property.tenant.manegement.repository.IRepository;
 import java.util.Set;
 
 public interface LeaseRenewalRepository extends IRepository<Lease_Renewal, String> {
-    Set<LeaseRenewalRepository>getAll();
+    Set<Lease_Renewal> getAll();
 }

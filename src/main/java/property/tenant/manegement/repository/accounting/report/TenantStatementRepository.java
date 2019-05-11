@@ -6,5 +6,5 @@ import property.tenant.manegement.repository.IRepository;
 import java.util.Set;
 
 public interface TenantStatementRepository extends IRepository<Tenant_statement,String> {
-    Set<TenantStatementRepository>getAll();
+    Set<Tenant_statement>getAll();
 }

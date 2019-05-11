@@ -1,5 +1,8 @@
 package property.tenant.manegement.domain.accounting.report;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+@EntityScan
 public class Invoice {
     private String payment_number,payment_date,property_name,tenant_name,invoiceId;
     private String status,rental_period;
@@ -80,6 +83,12 @@ public class Invoice {
         }
         public Builder payment_date(String payment_date) {
             this.payment_date = payment_date;
+            return this;
+        }
+        public Builder copy(Invoice builder){
+            this.payment_date=builder.payment_date;
+            this.rental_amount=builder.rental_amount;
+            this.invoiceId=builder.invoiceId;
             return this;
         }
         public Invoice build() {

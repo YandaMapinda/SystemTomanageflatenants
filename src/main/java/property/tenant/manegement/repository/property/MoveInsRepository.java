@@ -6,5 +6,5 @@ import property.tenant.manegement.repository.IRepository;
 import java.util.Set;
 
 public interface MoveInsRepository extends IRepository<MoveIns,String> {
-    Set<MoveInsRepository>getAll();
+    Set<MoveIns>getAll();
 }

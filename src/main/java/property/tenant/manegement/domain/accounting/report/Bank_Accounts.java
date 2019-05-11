@@ -1,5 +1,8 @@
 package property.tenant.manegement.domain.accounting.report;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+@EntityScan
 public class Bank_Accounts {
     private int bank_account_id;
     private int bank_branch_id;
@@ -8,7 +11,7 @@ public class Bank_Accounts {
     private  int bank_account_number;
     private  boolean is_active;
 
-    private Bank_Accounts(){}
+    public Bank_Accounts(){}
     private Bank_Accounts(Builder builder){
         this.bank_account_name=builder.bank_account_name;
         this.bank_account_number=builder.bank_account_number;
@@ -48,6 +51,11 @@ public class Bank_Accounts {
 
         public Builder bank_account_name(String bank_account_name) {
             this.bank_account_name = bank_account_name;
+            return this;
+        }
+        public Builder copy(Bank_Accounts builder){
+            this.bank_account_name=builder.bank_account_name;
+            this.bank_account_number=builder.bank_account_number;
             return this;
         }
         public Bank_Accounts build() {

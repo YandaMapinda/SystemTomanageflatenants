@@ -8,5 +8,5 @@ import java.util.Set;
 
 public interface PersonRepository extends IRepository<Person, String> {
 
-    Set<PersonRepository> getAll();
+    Set<Person> getAll();
 }

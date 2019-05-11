@@ -60,6 +60,13 @@ public class Tenant extends Person{
             this.idNum=idNum;
             return this;
         }
+        public Builder copy(Tenant tenant){
+            //this.idNum = builder.idNum;
+            this.name = tenant.name;
+            this.surname = tenant.surname;
+            this.phoneNum = tenant.phoneNum;
+    return this;
+        }
         public Tenant build() {
             return new Tenant(this);
         }
