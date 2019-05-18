@@ -1,9 +1,10 @@
 package property.tenant.manegement.domain.property;
 
+import java.util.Objects;
 import java.util.Set;
 
 public class Period_Rentals extends Rental{
-    private int period_rental_id,rental_id,period_id,property_id,tenant_id;
+    private String period_rental_id,rental_id,period_id,property_id,tenant_id;
     private double rental_amount,service_fees,repair_amount;
     private String status;
 
@@ -14,23 +15,23 @@ public class Period_Rentals extends Rental{
         this.service_fees=builder.service_fees;
     }
 
-    public int getPeriod_rental_id() {
+    public String getPeriod_rental_id() {
         return period_rental_id;
     }
 
-    public int getRental_id() {
+    public String getRental_id() {
         return rental_id;
     }
 
-    public int getPeriod_id() {
+    public String getPeriod_id() {
         return period_id;
     }
 
-    public int getProperty_id() {
+    public String getProperty_id() {
         return property_id;
     }
 
-    public int getTenant_id() {
+    public String getTenant_id() {
         return tenant_id;
     }
 
@@ -52,11 +53,11 @@ public class Period_Rentals extends Rental{
 
 
     public static class Builder {
-        private int period_id;
+        private String period_id;
         private double repair_amount, service_fees;
         private Set<Rental> rentalSet;
 
-        public Builder period_id(int period_id) {
+        public Builder period_id(String period_id) {
             this.period_id = period_id;
             return this;
         }
@@ -83,5 +84,16 @@ public class Period_Rentals extends Rental{
                     '}';
         }
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Period_Rentals periodRentals = (Period_Rentals) o;
+        return periodRentals.equals(periodRentals.period_id);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(period_id);
+    }
 }

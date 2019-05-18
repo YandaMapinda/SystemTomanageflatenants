@@ -1,6 +1,6 @@
 package property.tenant.manegement.service.person;
 
-import property.tenant.manegement.factory.person.factory.Person;
+import property.tenant.manegement.domain.person.Person;
 import property.tenant.manegement.service.IService;
 
 import java.util.Set;

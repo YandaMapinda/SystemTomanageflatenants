@@ -12,6 +12,6 @@ public class TenantFactoryTest {
         String name = "Ziyanda";
         Tenant t = TenantFactory.getTenant(name);
         System.out.println(t);
-        Assert.assertNotNull(t.getName());
+        Assert.assertNotNull(t.getTenantId());
     }
 }

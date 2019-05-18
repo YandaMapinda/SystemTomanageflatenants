@@ -24,7 +24,7 @@ public class BankAccountsServiceImplTest {
     @Before
     public void setUp() throws Exception {
         this.repository = BankAccountRepositoryImpl.getRepository();
-        this.account = Bank_AccountsFactory.getBank_Accounts("savings",44);
+        this.account = Bank_AccountsFactory.getBank_Accounts("savings","44");
     }
 
 
@@ -41,7 +41,6 @@ public class BankAccountsServiceImplTest {
     public void c_update() {
         String bankAccName = "savings";
         Bank_Accounts.Builder builder = new Bank_Accounts.Builder();
-        builder.copy(getSaved());
         builder.bank_account_name(bankAccName);
         Bank_Accounts updated = builder.build();
         System.out.println("In update, updated = " + updated);
@@ -51,17 +50,16 @@ public class BankAccountsServiceImplTest {
 
     @Test
     public void e_delete() {
-        Bank_Accounts saved = getSaved();
-        this.repository.delete(saved.getBank_account_name());
+        //Bank_Accounts saved = getSaved();
+        this.repository.delete(account.getBank_account_name());
         d_getAll();
     }
 
     @Test
     public void b_read() {
-        Bank_Accounts saved = getSaved();
-        Bank_Accounts read = this.repository.read(saved.getBank_account_name());
+        Bank_Accounts read = this.repository.read(account.getBank_account_name());
         System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
+        Assert.assertNotEquals(read, account.getBank_account_name());
     }
     @Test
     public void d_getAll() {

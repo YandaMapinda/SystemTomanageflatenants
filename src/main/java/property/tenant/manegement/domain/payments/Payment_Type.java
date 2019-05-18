@@ -4,7 +4,7 @@ import java.util.Set;
 
 public class Payment_Type extends Payment{
     private int payment_type_id;
-    private int account_id;
+    private String account_id;
     private String payment_type_name;
     private  boolean is_active;
 
@@ -20,7 +20,7 @@ public class Payment_Type extends Payment{
         return payment_type_id;
     }
 
-    public int getAccount_id() {
+    public String getAccount_id() {
         return account_id;
     }
 
@@ -33,7 +33,7 @@ public class Payment_Type extends Payment{
     }
 
     public static class Builder {
-        private int account_id;
+        private String account_id;
         private String payment_type_name;
         private Set<Payment>paymentSet;
 
@@ -42,7 +42,7 @@ public class Payment_Type extends Payment{
             return this;
         }
 
-        public Builder account_id(int account_id) {
+        public Builder account_id(String account_id) {
             this.account_id = account_id;
             return this;
         }

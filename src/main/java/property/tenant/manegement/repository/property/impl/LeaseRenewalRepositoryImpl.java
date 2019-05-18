@@ -29,15 +29,15 @@ public class LeaseRenewalRepositoryImpl implements LeaseRenewalRepository {
 
     @Override
     public Lease_Renewal create(Lease_Renewal lease_renewal) {
-        leaseMap.put(lease_renewal.getLeaseId(),lease_renewal);
-        Lease_Renewal savedR = leaseMap.get(lease_renewal.getLeaseId());
+        leaseMap.put(lease_renewal.getLease_renewal_id(),lease_renewal);
+        Lease_Renewal savedR = leaseMap.get(lease_renewal.getLease_renewal_id());
         return savedR;
     }
 
     @Override
     public Lease_Renewal update(Lease_Renewal lease_renewal) {
-        leaseMap.put(lease_renewal.getLeaseId(),lease_renewal);
-        Lease_Renewal savedR = leaseMap.get(lease_renewal.getLeaseId());
+        leaseMap.put(lease_renewal.getLease_renewal_id(),lease_renewal);
+        Lease_Renewal savedR = leaseMap.get(lease_renewal.getLease_renewal_id());
         return savedR;
     }
 

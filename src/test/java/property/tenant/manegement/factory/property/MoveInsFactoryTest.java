@@ -1,6 +1,5 @@
 package property.tenant.manegement.factory.property;
 
-import property.tenant.manegement.factory.person.factory.MoveInsFactory;
 import org.junit.Assert;
 import org.junit.Test;
 import property.tenant.manegement.domain.property.MoveIns;
@@ -14,6 +13,6 @@ public class MoveInsFactoryTest {
 
         MoveIns m = MoveInsFactory.getMoveIns(name,date,flatNumb);
         System.out.println(m);
-        Assert.assertNotNull(m.getTenantName(),m.getFlatNumb());
+        Assert.assertNotNull(m.getMoveInId(),m.getDate());
     }
 }

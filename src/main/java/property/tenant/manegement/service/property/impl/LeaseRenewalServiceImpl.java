@@ -1,12 +1,13 @@
 package property.tenant.manegement.service.property.impl;
 
+import org.springframework.stereotype.Service;
 import property.tenant.manegement.domain.property.Lease_Renewal;
 import property.tenant.manegement.repository.property.impl.LeaseRenewalRepositoryImpl;
 import property.tenant.manegement.repository.property.LeaseRenewalRepository;
 import property.tenant.manegement.service.property.LeaseRenewalService;
 
 import java.util.Set;
-
+@Service
 public class LeaseRenewalServiceImpl implements LeaseRenewalService {
 
     private static LeaseRenewalServiceImpl service = null;

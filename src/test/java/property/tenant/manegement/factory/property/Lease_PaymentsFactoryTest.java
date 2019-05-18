@@ -1,6 +1,5 @@
 package property.tenant.manegement.factory.property;
 
-import property.tenant.manegement.factory.person.factory.Lease_PaymentsFactory;
 import org.junit.Assert;
 import org.junit.Test;
 import property.tenant.manegement.domain.property.Lease_Payments;

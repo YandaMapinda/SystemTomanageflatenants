@@ -1,58 +1,62 @@
 package property.tenant.manegement.repository.accounting.report.impl;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import property.tenant.manegement.domain.accounting.report.Account;
 import property.tenant.manegement.factory.accounts.AccountFactory;
 import property.tenant.manegement.repository.accounting.report.AccountRepository;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Set;
 
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertNull;
-
+//@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@FixMethodOrder(MethodSorters.JVM)
 public class AccountRepositoryImplTest {
-
-    Map<String,String> values;
+    //@Autowired
     AccountRepository repository;
+    private Account account;
 
     @Before
     public void setUp() throws Exception {
         repository = AccountRepositoryImpl.getInstance();
-        values = new HashMap<String, String>();
-        values.put("account_name","savings");
-        values.put("acountNo","1234");
+        this.account=AccountFactory.getAccount("savings","1234");
     }
-
+    @Test
+    public void getAll() {
+        Set<Account> accounts = this.repository.getAll();
+        System.out.println("getAll = " + accounts);
+    }
     @Test
     public void create() {
-        Account person = AccountFactory.getAccount("savings","1234");
-        repository.create(person);
-        assertEquals("1234",person.getAccount_no());
+        Account created = this.repository.create(this.account);
+        System.out.println("In create, created = " + created);
+        assertEquals(created,this.account);
     }
 
     @Test
-    public void update() {
-
-        Account acc = repository.read("1234");
-        Account newAcc =  new Account.Builder().account_name(values.get("Savings"))
-                .account_no(values.get("1234")).build();
-        repository.update(newAcc);
-        Account UpdateAcc= repository.read("1234");
-        assertEquals("1234",UpdateAcc.getAccount_no());
+    public void update() throws Exception{
+        String accountName = "Savings";
+        String accountNo = "123456";
+        Account updated = new Account.Builder().account_name(accountName).account_no(accountNo).build();
+        System.out.println("In update, about_to_updated = " + updated);
+        this.repository.update(updated);
+        assertEquals("123456",updated.getAccount_no());
+        Assert.assertSame(accountName, updated.getAccount_name());
     }
 
     @Test
     public void delete() {
-        repository.delete("1");
-        Account acc= repository.read("1");
-        assertNull(acc);
+        this.repository.delete(account.getAccount_no());
+        getAll();
     }
 
     @Test
     public void read() {
-        Account acc = repository.read("1");
-        assertEquals("b12",acc.getAccount_no());
+       // Account saved = new Account();
+        Account read = this.repository.read(account.getAccount_no());
+        System.out.println("In read, read = "+ read);
+        Assert.assertNotEquals(read, account.getAccount_no());
     }
 }

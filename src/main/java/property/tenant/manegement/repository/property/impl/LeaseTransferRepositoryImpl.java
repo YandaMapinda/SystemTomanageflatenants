@@ -30,15 +30,15 @@ public class LeaseTransferRepositoryImpl implements LeaseTransferRepository {
 
     @Override
     public Lease_Transfer create(Lease_Transfer lease_transfer) {
-        leaseMap.put(lease_transfer.getLeaseId(),lease_transfer);
-        Lease_Transfer savedR = leaseMap.get(lease_transfer.getLeaseId());
+        leaseMap.put(lease_transfer.getLease_transfer_id(),lease_transfer);
+        Lease_Transfer savedR = leaseMap.get(lease_transfer.getLease_transfer_id());
         return savedR;
     }
 
     @Override
     public Lease_Transfer update(Lease_Transfer lease_transfer) {
-        leaseMap.put(lease_transfer.getLeaseId(),lease_transfer);
-        Lease_Transfer savedR = leaseMap.get(lease_transfer.getLeaseId());
+        leaseMap.put(lease_transfer.getLease_transfer_id(),lease_transfer);
+        Lease_Transfer savedR = leaseMap.get(lease_transfer.getLease_transfer_id());
         return savedR;
     }
 

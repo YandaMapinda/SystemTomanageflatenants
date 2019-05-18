@@ -1,18 +1,15 @@
 package property.tenant.manegement.domain.property;
 
-import property.tenant.manegement.domain.person.Tenant;
-
-import java.util.Set;
+import java.util.Objects;
 
 public class Lease {
     private String date,place,tenantName,ownerName,flatAddress,leaseId;
-    private int property_lease_id,property_id,tenant_id;
+    private String property_lease_id,property_id,tenant_id;
     private String lease_start_date,lease_end_date,lease_period,lease_status;
     private boolean is_active,is_vacant;
     private double lease_amount;
-    Set<Tenant> tanant;
-    Set<Property> propertySet;
-    public Lease(){}
+
+    private Lease(){}
 
     private Lease(Builder builder){
         this.date = builder.date;
@@ -23,19 +20,21 @@ public class Lease {
         this.leaseId=builder.leaseId;
     }
 
+
+
     public String getLeaseId() {
         return leaseId;
     }
 
-    public int getProperty_lease_id() {
+    public String getProperty_lease_id() {
         return property_lease_id;
     }
 
-    public int getProperty_id() {
+    public String getProperty_id() {
         return property_id;
     }
 
-    public int getTenant_id() {
+    public String getTenant_id() {
         return tenant_id;
     }
 
@@ -129,5 +128,16 @@ public class Lease {
                    '}';
        }
    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Lease lease = (Lease) o;
+        return lease.equals(lease.leaseId);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(leaseId);
+    }
 }

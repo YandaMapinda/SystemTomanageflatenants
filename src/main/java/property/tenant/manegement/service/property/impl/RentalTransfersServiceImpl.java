@@ -1,12 +1,13 @@
 package property.tenant.manegement.service.property.impl;
 
+import org.springframework.stereotype.Service;
 import property.tenant.manegement.domain.property.RentalTransfers;
 import property.tenant.manegement.repository.property.impl.RentalTransferRepositoryImpl;
 import property.tenant.manegement.repository.property.RentalTransferRepository;
 import property.tenant.manegement.service.property.RentalTransfersService;
 
 import java.util.Set;
-
+@Service
 public class RentalTransfersServiceImpl implements RentalTransfersService {
 
     private static RentalTransfersServiceImpl service = null;

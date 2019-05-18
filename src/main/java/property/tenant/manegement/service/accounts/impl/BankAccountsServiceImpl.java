@@ -1,12 +1,13 @@
 package property.tenant.manegement.service.accounts.impl;
 
+import org.springframework.stereotype.Service;
 import property.tenant.manegement.domain.accounting.report.Bank_Accounts;
 import property.tenant.manegement.repository.accounting.report.BankAccountRepository;
 import property.tenant.manegement.repository.accounting.report.impl.BankAccountRepositoryImpl;
 import property.tenant.manegement.service.accounts.BankAccountsService;
 
 import java.util.Set;
-
+@Service
 public class BankAccountsServiceImpl implements BankAccountsService {
 
     private static BankAccountsServiceImpl service = null;

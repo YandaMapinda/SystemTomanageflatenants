@@ -41,24 +41,23 @@ public class TenantServiceImplTest {
     @Test
     public void update() {
         String newTenant = "Zizo";
-        Tenant updates = new Tenant.Builder().copy(getSaved()).name(newTenant).build();
+        boolean employed = false;
+        Tenant updates = new Tenant.Builder().name(newTenant).build();
         System.out.println("Updated" +updates);
         this.repository.update(updates);
-        Assert.assertSame(newTenant,updates.getName());
+        Assert.assertSame(employed,updates.isEmployed());
     }
 
     @Test
     public void delete() {
-       Tenant saved = getSaved();
-        this.repository.delete(saved.getName());
+        this.repository.delete(tenant.getTenantId());
         getAll();
     }
 
     @Test
     public void read() {
-        Tenant  saved = getSaved();
-        Tenant read = this.repository.read(saved.getName());
+        Tenant read = this.repository.read(tenant.getTenantId());
         System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
+        Assert.assertNotEquals(read, tenant.isEmployed());
     }
 }

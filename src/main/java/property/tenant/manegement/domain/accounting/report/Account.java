@@ -7,7 +7,7 @@ public class Account {
     private String account_name;
     private boolean is_active;
 
-    public Account(){}
+    private Account(){}
     private Account(Builder builder){
         this.account_name=builder.account_name;
         this.account_no =builder.account_no;

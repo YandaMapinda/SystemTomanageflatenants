@@ -1,45 +1,46 @@
 package property.tenant.manegement.domain.person;
 
-import property.tenant.manegement.factory.person.factory.Person;
-
+import java.util.Objects;
 import java.util.Set;
 
-public class Tenant extends Person{
-    /*private String name;
+public class Tenant {
+    private String name;
     private String surname;
-    private String phoneNum;*/
+    private String phoneNum;
     private boolean is_active,employed;
+    private String tenantId;
 
-    Person person;
+    private Person person ;
     Address contact;
 
-    public Tenant(){super();
+    private Tenant(){super();
     }
     private Tenant(Builder builder){
-        //this.idNum = builder.idNum;
+        this.tenantId = builder.tenantId;
         this.name = builder.name;
         this.surname = builder.surname;
         this.phoneNum = builder.phoneNum;
 
     }
 
-    public String getName() {
-        return name;
+    public boolean isIs_active() {
+        return is_active;
     }
 
-    public String getSurname() {
-        return surname;
+    public boolean isEmployed() {
+        return employed;
     }
 
-    public String getPhoneNum() {
-        return phoneNum;
+    public String getTenantId() {
+        return tenantId;
     }
 
-
+    public Address getContact() {
+        return contact;
+    }
 
     public static class Builder{
-        private String name,surname,phoneNum;
-        private long idNum;
+        private String name,surname,phoneNum,tenantId;
         private Set<Person> personSet;
         public Builder name(String name) {
             this.name=name;
@@ -56,16 +57,9 @@ public class Tenant extends Person{
             return this;
         }
 
-        public Builder idNum(Long idNum) {
-            this.idNum=idNum;
+        public Builder tenantId(String tenantId) {
+            this.tenantId=tenantId;
             return this;
-        }
-        public Builder copy(Tenant tenant){
-            //this.idNum = builder.idNum;
-            this.name = tenant.name;
-            this.surname = tenant.surname;
-            this.phoneNum = tenant.phoneNum;
-    return this;
         }
         public Tenant build() {
             return new Tenant(this);
@@ -76,9 +70,20 @@ public class Tenant extends Person{
                     "Name='" + name + '\'' +
                     ", Surname='" + surname + '\'' +
                     ", Phone number='" + phoneNum + '\'' +
-                    ", ID number=" + idNum +
+                    ", ID number=" + tenantId +
                     '}';
         }
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tenant tenant = (Tenant) o;
+        return tenant.equals(tenant.tenantId);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(tenantId);
+    }
 }

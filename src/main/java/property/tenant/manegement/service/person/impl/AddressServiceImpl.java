@@ -1,12 +1,13 @@
 package property.tenant.manegement.service.person.impl;
 
+import org.springframework.stereotype.Service;
 import property.tenant.manegement.domain.person.Address;
 import property.tenant.manegement.repository.person.impl.AddressRepositoryImpl;
 import property.tenant.manegement.repository.person.AddressRepository;
 import property.tenant.manegement.service.person.AddressService;
 
 import java.util.Set;
-
+@Service
 public class AddressServiceImpl implements AddressService {
 
     private static AddressServiceImpl service = null;

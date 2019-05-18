@@ -11,6 +11,8 @@ import property.tenant.manegement.repository.accounting.report.impl.InvoiceRepos
 
 import java.util.Set;
 
+import static org.junit.Assert.assertNull;
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class InvoiceServiceImplTest {
 
@@ -45,7 +47,7 @@ public class InvoiceServiceImplTest {
     @Test
     public void update() {
         String date = "03 May 2019";
-        Invoice updated = new Invoice.Builder().copy(getSaved()).payment_date(date).build();
+        Invoice updated = new Invoice.Builder().payment_date(date).build();
         System.out.println("In update, updated = " + updated);
         this.repository.update(updated);
         Assert.assertSame(date, updated.getPayment_date());
@@ -53,16 +55,18 @@ public class InvoiceServiceImplTest {
 
     @Test
     public void delete() {
-        Invoice saved = getSaved();
+       /* Invoice saved = getSaved();
         this.repository.delete(saved.getPayment_date());
-        getAll();
+        getAll();*/
+        repository.delete(invoice.getTenant_name());
+        Invoice acc= repository.read("1");
+        assertNull(acc);
     }
 
     @Test
     public void read() {
-        Invoice saved = getSaved();
-        Invoice read = this.repository.read(saved.getPayment_date());
+        Invoice read = this.repository.read(invoice.getInvoiceId());
         System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, saved);
+        Assert.assertNotEquals(read, invoice.getInvoiceId());
     }
 }

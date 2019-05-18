@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="manage.train.booking" />
         <module name="managetrainbooking" />
+        <module name="SystemTomanageflatenants" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -17,6 +18,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="SystemTomanageflatenants" options="-parameters" />
       <module name="demo" options="-parameters" />
       <module name="manage.train.booking" options="-parameters" />
       <module name="rentalModule" options="-parameters" />

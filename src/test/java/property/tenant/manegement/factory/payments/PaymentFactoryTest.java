@@ -1,6 +1,6 @@
 package property.tenant.manegement.factory.payments;
 
-import property.tenant.manegement.factory.accounts.PaymentFactory;
+import property.tenant.manegement.factory.payment.PaymentFactory;
 import org.junit.Assert;
 import org.junit.Test;
 import property.tenant.manegement.domain.payments.Payment;

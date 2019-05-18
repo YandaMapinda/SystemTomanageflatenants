@@ -1,15 +1,27 @@
 package property.tenant.manegement.domain.property;
 
-public class MoveIns {
-    private String date,time,tenantName,flatNumb;
+import property.tenant.manegement.domain.person.Person;
+import property.tenant.manegement.domain.person.Tenant;
 
+import java.util.Objects;
+
+public class MoveIns {
+    private String date,time,moveInId,name,flatNum;
+    private Tenant tenant;
+    private Person person;
+    private Property property;
     private MoveIns(){}
 
-    public MoveIns(Builder builder) {
+    private MoveIns(Builder builder) {
         this.date = builder.date;
         this.time = builder.time;
-        this.tenantName = builder.tenantName;
-        this.flatNumb = builder.flatNumb;
+        this.moveInId= builder.moveInId;
+        this.name = builder.tenantName;
+        this.flatNum = builder.flatNumb;
+    }
+
+    public String getMoveInId() {
+        return moveInId;
     }
 
     public String getDate() {
@@ -20,19 +32,15 @@ public class MoveIns {
         return time;
     }
 
-    public String getTenantName() {
-        return tenantName;
-    }
-
-    public String getFlatNumb() {
-        return flatNumb;
-    }
-
     public static class Builder{
-        private String date,time,tenantName,flatNumb;
+        private String date,time,tenantName,flatNumb,moveInId;
 
         public Builder tenantName(String tenantName) {
             this.tenantName=tenantName;
+            return this;
+        }
+        public Builder moveInId(String moveInId) {
+            this.moveInId=moveInId;
             return this;
         }
         public Builder date(String date) {
@@ -63,6 +71,17 @@ public class MoveIns {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MoveIns moveIns = (MoveIns) o;
+        return moveIns.equals(moveIns.moveInId);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(moveInId);
+    }
 
 }

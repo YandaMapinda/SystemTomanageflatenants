@@ -1,6 +1,15 @@
 package property.tenant.manegement.domain.accounting.report;
 
+import property.tenant.manegement.domain.payments.Payment;
+import property.tenant.manegement.domain.property.Property;
+import property.tenant.manegement.domain.property.Rental;
+
+import java.util.Objects;
+
 public class Tenant_statement {
+    private Payment payment ;
+    private Rental rental = new Rental();
+    private Property property ;
     private int rental_id,payment_id;
     private String tenant_name,property_name,property_type_name,payment_date,payment_number,id;
     private double rent_To_Pay,rent_paid,balance;
@@ -83,5 +92,16 @@ public class Tenant_statement {
                     '}';
         }
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tenant_statement statement = (Tenant_statement) o;
+        return statement.equals(statement.id);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

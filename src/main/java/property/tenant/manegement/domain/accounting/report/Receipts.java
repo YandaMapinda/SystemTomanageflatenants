@@ -1,12 +1,21 @@
 package property.tenant.manegement.domain.accounting.report;
 
+import property.tenant.manegement.domain.payments.Payment;
+import property.tenant.manegement.domain.property.Property;
+import property.tenant.manegement.domain.property.Rental;
+
+import java.util.Objects;
+
 public class Receipts {
+    private Payment payment ;
+    private Rental rental = new Rental();
+    private Property property ;
     private int payment_id,payment_type_id,period_id,property_id,rental_id;
     private String payment_number,payment_date,property_name,tenant_name,id;
     private double account_credit;
     private double balance;
 
-    public Receipts(){}
+    private Receipts(){}
     private Receipts(Builder builder){
         this.tenant_name=builder.tenant_name;
         this.balance=builder.balance;
@@ -87,6 +96,17 @@ public class Receipts {
                     '}';
         }
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Receipts receipts = (Receipts) o;
+        return receipts.equals(receipts.id);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
 }

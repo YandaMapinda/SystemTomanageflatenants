@@ -1,15 +1,23 @@
 package property.tenant.manegement.domain.accounting.report;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import property.tenant.manegement.domain.payments.Payment;
+import property.tenant.manegement.domain.property.Property;
+import property.tenant.manegement.domain.property.Rental;
+
+import java.util.Objects;
 
 @EntityScan
 public class Invoice {
+    private Payment payment ;
+    private Rental rental = new Rental();
+    private Property property ;
     private String payment_number,payment_date,property_name,tenant_name,invoiceId;
     private String status,rental_period;
     private int payment_id,payment_type_id,period_id,property_id,rental_id;
     private double rental_amount;
 
-    public Invoice(){}
+    private Invoice(){}
     private Invoice(Builder builder){
         this.payment_date=builder.payment_date;
         this.rental_amount=builder.rental_amount;
@@ -100,5 +108,18 @@ public class Invoice {
                     ", payment_date='" + payment_date + '\'' +
                     '}';
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Invoice invoice = (Invoice) o;
+        return invoice.equals(invoice.invoiceId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(invoiceId);
     }
 }

@@ -1,23 +1,20 @@
 package property.tenant.manegement.domain.person;
 
-import property.tenant.manegement.factory.person.factory.Person;
-
+import java.util.Objects;
 import java.util.Set;
 
-public class Landlord extends Person {
-    /*private String name,email;
-    private String surname;
-    private String phoneNum;
-*/private String landlordId;
-    Person person;
+public class Landlord  {
+ private String landlordId;
+    private Person person = new Person();
     Address contact;
 
-    public Landlord(){}
+    protected Landlord(){}
     private Landlord(Builder builder){
-        this.email = builder.email;
-        this.name = builder.name;
-        this.surname = builder.surname;
-        this.phoneNum = builder.phoneNum;
+        person.name = builder.name;
+        person.email = builder.email;
+        person.surname = builder.surname;
+        person.phoneNum = builder.phoneNum;
+        this.landlordId=builder.landlordId;
     }
 
     public String getLandlordId() {
@@ -32,26 +29,8 @@ public class Landlord extends Person {
         return contact;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getPhoneNum() {
-        return phoneNum;
-    }
-
-
-
     public static class Builder{
-        private String name,surname,phoneNum,email;
+        private String name,surname,phoneNum,email,landlordId;
         private Set<Person> personSet;
         public Builder name(String name) {
             this.name=name;
@@ -67,7 +46,10 @@ public class Landlord extends Person {
             this.phoneNum=phoneNum;
             return this;
         }
-
+        public Builder landlordId(String landlordId) {
+            this.landlordId=landlordId;
+            return this;
+        }
         public Builder email(String email) {
             this.email=email;
             return this;
@@ -81,8 +63,20 @@ public class Landlord extends Person {
                     "Name='" + name + '\'' +
                     ", Surname='" + surname + '\'' +
                     ", Phone number='" + phoneNum + '\'' +
-                    ", Email Address=" + email +
+                    ", Email Address=" +  +
                     '}';
         }
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Landlord landlord = (Landlord) o;
+        return landlord.equals(landlord.landlordId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(landlordId);
     }
 }

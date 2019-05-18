@@ -3,9 +3,7 @@ package property.tenant.manegement.repository.person.impl;
 import property.tenant.manegement.domain.person.Address;
 import property.tenant.manegement.repository.person.AddressRepository;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class AddressRepositoryImpl implements AddressRepository {
 
@@ -23,8 +21,11 @@ public class AddressRepositoryImpl implements AddressRepository {
     }
 
     @Override
-    public Set<Address> getAll() {
-        return null;
+    public Set<Address> getAll(){
+        Collection<Address> addresses = this.addressMap.values();
+        Set<Address> set = new HashSet<>();
+        set.addAll(addresses);
+        return set;
     }
 
     @Override

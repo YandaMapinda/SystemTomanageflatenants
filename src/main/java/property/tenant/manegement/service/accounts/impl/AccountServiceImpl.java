@@ -1,5 +1,7 @@
 package property.tenant.manegement.service.accounts.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import property.tenant.manegement.domain.accounting.report.Account;
 import property.tenant.manegement.repository.accounting.report.AccountRepository;
@@ -7,8 +9,10 @@ import property.tenant.manegement.repository.accounting.report.impl.AccountRepos
 import property.tenant.manegement.service.accounts.AccountService;
 
 import java.util.Set;
-@Service
+@Service("ServiceImpl")
 public class AccountServiceImpl implements AccountService {
+    @Autowired
+    @Qualifier("InMemory")
 
     private static AccountServiceImpl service = null;
     private AccountRepository repository;

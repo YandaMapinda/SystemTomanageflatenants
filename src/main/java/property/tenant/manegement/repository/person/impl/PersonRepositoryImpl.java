@@ -1,6 +1,6 @@
 package property.tenant.manegement.repository.person.impl;
 
-import property.tenant.manegement.factory.person.factory.Person;
+import property.tenant.manegement.domain.person.Person;
 import property.tenant.manegement.repository.person.PersonRepository;
 
 import java.util.*;
@@ -46,8 +46,11 @@ public class PersonRepositoryImpl implements PersonRepository {
 
 
     @Override
-    public Set<Person> getAll() {
-        return null;
+    public Set<Person> getAll(){
+        Collection<Person> people = this.personTable.values();
+        Set<Person> set = new HashSet<>();
+        set.addAll(people);
+        return set;
     }
 }
 

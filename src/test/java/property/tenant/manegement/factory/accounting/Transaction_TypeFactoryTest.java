@@ -2,7 +2,7 @@ package property.tenant.manegement.factory.accounting;
 
 import org.junit.Assert;
 import org.junit.Test;
-import property.tenant.manegement.factory.property.Transaction_TypeFactory;
+import property.tenant.manegement.factory.accounts.Transaction_TypeFactory;
 import property.tenant.manegement.domain.accounting.report.Transaction_Type;
 
 public class Transaction_TypeFactoryTest {

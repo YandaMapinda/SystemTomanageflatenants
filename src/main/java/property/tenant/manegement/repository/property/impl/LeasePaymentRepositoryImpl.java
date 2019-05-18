@@ -28,15 +28,15 @@ public class LeasePaymentRepositoryImpl implements LeasePaymentRepository {
 
     @Override
     public Lease_Payments create(Lease_Payments lease_payments) {
-        leaseMap.put(lease_payments.getLeaseId(),lease_payments);
-        Lease_Payments savedR = leaseMap.get(lease_payments.getLeaseId());
+        leaseMap.put(lease_payments.getLease_payment_id(),lease_payments);
+        Lease_Payments savedR = leaseMap.get(lease_payments.getLease_payment_id());
         return savedR;
     }
 
     @Override
     public Lease_Payments update(Lease_Payments lease_payments) {
-        leaseMap.put(lease_payments.getLeaseId(),lease_payments);
-        Lease_Payments savedR = leaseMap.get(lease_payments.getLeaseId());
+        leaseMap.put(lease_payments.getLease_payment_id(),lease_payments);
+        Lease_Payments savedR = leaseMap.get(lease_payments.getLease_payment_id());
         return savedR;
     }
 

@@ -1,12 +1,13 @@
 package property.tenant.manegement.service.property.impl;
 
+import org.springframework.stereotype.Service;
 import property.tenant.manegement.domain.property.Log_Rentals;
 import property.tenant.manegement.repository.property.impl.LogRentalRepositoryImpl;
 import property.tenant.manegement.repository.property.LogRentalRepository;
 import property.tenant.manegement.service.property.LogRentalService;
 
 import java.util.Set;
-
+@Service
 public class LogRentalServiceImpl implements LogRentalService {
 
     private static LogRentalServiceImpl service = null;

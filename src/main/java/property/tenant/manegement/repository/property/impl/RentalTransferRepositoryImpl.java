@@ -28,15 +28,15 @@ public class RentalTransferRepositoryImpl implements RentalTransferRepository {
 
     @Override
     public RentalTransfers create(RentalTransfers rentalTransfers) {
-        rentalMap.put(rentalTransfers.getTerm(),rentalTransfers);
-        RentalTransfers savedR = rentalMap.get(rentalTransfers.getTerm());
+        rentalMap.put(rentalTransfers.getRental_transfer_id(),rentalTransfers);
+        RentalTransfers savedR = rentalMap.get(rentalTransfers.getRental_transfer_id());
         return savedR;
     }
 
     @Override
     public RentalTransfers update(RentalTransfers rentalTransfers) {
-        rentalMap.put(rentalTransfers.getTerm(),rentalTransfers);
-        RentalTransfers savedR = rentalMap.get(rentalTransfers.getTerm());
+        rentalMap.put(rentalTransfers.getRental_transfer_id(),rentalTransfers);
+        RentalTransfers savedR = rentalMap.get(rentalTransfers.getRental_transfer_id());
         return savedR;
     }
 

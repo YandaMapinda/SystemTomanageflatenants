@@ -1,12 +1,13 @@
 package property.tenant.manegement.service.property.impl;
 
+import org.springframework.stereotype.Service;
 import property.tenant.manegement.domain.property.MoveIns;
 import property.tenant.manegement.repository.property.impl.MoveInsRepositoryImpl;
 import property.tenant.manegement.repository.property.MoveInsRepository;
 import property.tenant.manegement.service.property.MoveInsService;
 
 import java.util.Set;
-
+@Service
 public class MoveInsServiceImpl implements MoveInsService {
 
     private static MoveInsServiceImpl service = null;

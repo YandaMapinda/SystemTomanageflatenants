@@ -1,46 +1,42 @@
 package property.tenant.manegement.repository.accounting.report.impl;
 
 import junit.framework.TestCase;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import property.tenant.manegement.domain.accounting.report.Receipts;
 import property.tenant.manegement.factory.accounts.ReceiptsFactory;
 import property.tenant.manegement.repository.accounting.report.ReceiptRepository;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 public class ReceiptRepositoryImplTest {
 
-    Map<String,String> values;
-    ReceiptRepository repository;
+    private Receipts receipts;
+    private ReceiptRepository repository;
 
     @Before
     public void setUp() throws Exception {
-        repository = ReceiptRepositoryImpl.getInstance();
-        values = new HashMap<String, String>();
-        values.put("id","1");
-        values.put("name","John");
-        values.put("surname","Deo");
+        this.repository = ReceiptRepositoryImpl.getInstance();
+        this.receipts = ReceiptsFactory.getReceipts("ziya",100.0);
+
     }
 
     @Test
     public void create() {
-        Receipts receipts = ReceiptsFactory.getReceipts("ziya",100.0);
-        repository.create(receipts);
+        Receipts created = this.repository.create(this.receipts);
+        System.out.println("In create, created = " + created);
         assertEquals("ziya",receipts.getTenant_name());
     }
 
     @Test
     public void update() {
-        Receipts receipts = repository.read("1");
-        Receipts receipts1 =  new Receipts.Builder().tenant_name(values.get("name")).build();
-        repository.update(receipts1);
-        Receipts receipts2 = repository.read("1");
-        TestCase.assertEquals("1",receipts2.getTenant_name());
+        String name = "Asanda";
+        Receipts updated =  new Receipts.Builder().tenant_name(name).build();
+        System.out.println("In update, about_to_updated = " + updated);
+        this.repository.update(updated);
+        TestCase.assertEquals("Asanda",updated.getTenant_name());
     }
 
     @Test
@@ -52,7 +48,9 @@ public class ReceiptRepositoryImplTest {
 
     @Test
     public void read() {
-        Receipts receipts = repository.read("1");
-        TestCase.assertEquals("21/feb/2019",receipts.getPayment_date());
+        Receipts read = this.repository.read(receipts.getTenant_name());
+        System.out.println("In read, read = "+ read);
+        Assert.assertSame(read, receipts.getPayment_date());
+
     }
 }

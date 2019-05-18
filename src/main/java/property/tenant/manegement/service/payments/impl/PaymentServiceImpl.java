@@ -1,12 +1,13 @@
 package property.tenant.manegement.service.payments.impl;
 
+import org.springframework.stereotype.Service;
 import property.tenant.manegement.domain.payments.Payment;
 import property.tenant.manegement.repository.payments.PaymentRepository;
 import property.tenant.manegement.repository.payments.impl.PaymentRepositoryImpl;
 import property.tenant.manegement.service.payments.PaymentService;
 
 import java.util.Set;
-
+@Service
 public class PaymentServiceImpl implements PaymentService {
 
     private static PaymentServiceImpl service = null;

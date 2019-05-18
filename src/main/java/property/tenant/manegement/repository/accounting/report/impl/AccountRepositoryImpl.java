@@ -1,12 +1,11 @@
 package property.tenant.manegement.repository.accounting.report.impl;
 
+import org.springframework.stereotype.Repository;
 import property.tenant.manegement.domain.accounting.report.Account;
 import property.tenant.manegement.repository.accounting.report.AccountRepository;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
+import java.util.*;
+@Repository("InMemory")
 public class AccountRepositoryImpl implements AccountRepository {
 
     private static AccountRepositoryImpl repository = null;
@@ -24,7 +23,10 @@ public class AccountRepositoryImpl implements AccountRepository {
 
     @Override
     public Set<Account> getAll() {
-        return null;
+        Collection<Account> accounts = this.accountMap.values();
+        Set<Account> set = new HashSet<>();
+        set.addAll(accounts);
+        return set;
     }
 
     @Override
@@ -36,7 +38,7 @@ public class AccountRepositoryImpl implements AccountRepository {
 
     @Override
     public Account update(Account account) {
-        accountMap.put(account.getAccount_no(),account);
+        this.accountMap.replace(account.getAccount_no(),account);
         Account savedA = accountMap.get(account.getAccount_no());
         return savedA;
     }
@@ -44,7 +46,6 @@ public class AccountRepositoryImpl implements AccountRepository {
     @Override
     public void delete(String s) {
         accountMap.remove(s);
-
     }
 
     @Override

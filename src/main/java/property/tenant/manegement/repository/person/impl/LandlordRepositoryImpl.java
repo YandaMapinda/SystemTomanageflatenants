@@ -20,7 +20,7 @@ public class LandlordRepositoryImpl implements LandlordRepository {
     }
 
     public Landlord create(Landlord landlord){
-        landlordMap.put(landlord.getId(),landlord);
+        landlordMap.put(landlord.getLandlordId(),landlord);
         Landlord savedL = landlordMap.get(landlord.getLandlordId());
         return savedL;
     }
@@ -35,7 +35,7 @@ public class LandlordRepositoryImpl implements LandlordRepository {
 
     public Landlord update(Landlord landlord) {
         // find the student, update it and return the updated student
-        landlordMap.put(landlord.getId(),landlord);
+        landlordMap.put(landlord.getLandlordId(),landlord);
         Landlord savedL = landlordMap.get(landlord.getLandlordId());
         return savedL;
     }
@@ -45,10 +45,13 @@ public class LandlordRepositoryImpl implements LandlordRepository {
         landlordMap.remove(landlordId);
     }
 
-
     @Override
-    public Set<Landlord> getAll() {
-        return null;
+    public Set<Landlord> getAll(){
+        Collection<Landlord> landlords = this.landlordMap.values();
+        Set<Landlord> set = new HashSet<>();
+        set.addAll(landlords);
+        return set;
     }
+
 }
 

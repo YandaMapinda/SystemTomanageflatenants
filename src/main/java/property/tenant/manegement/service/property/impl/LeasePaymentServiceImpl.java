@@ -1,12 +1,13 @@
 package property.tenant.manegement.service.property.impl;
 
+import org.springframework.stereotype.Service;
 import property.tenant.manegement.domain.property.Lease_Payments;
 import property.tenant.manegement.repository.property.impl.LeasePaymentRepositoryImpl;
 import property.tenant.manegement.repository.property.LeasePaymentRepository;
 import property.tenant.manegement.service.property.LeasePaymentService;
 
 import java.util.Set;
-
+@Service
 public class LeasePaymentServiceImpl implements LeasePaymentService {
     private static LeasePaymentServiceImpl service = null;
     private LeasePaymentRepository repository;

@@ -1,56 +1,58 @@
 package property.tenant.manegement.repository.person.impl;
 
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import property.tenant.manegement.domain.person.Tenant;
 import property.tenant.manegement.factory.person.factory.TenantFactory;
 import property.tenant.manegement.repository.person.TenantRepository;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Set;
 
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertNull;
+import static junit.framework.TestCase.assertNotNull;
 
+@FixMethodOrder(MethodSorters.JVM)
 public class TenantRepositoryImplTest {
-    Map<String,String> values;
-    TenantRepository repository;
+   private Tenant tenant;
+    private TenantRepository repository;
 
     @Before
     public void setUp() throws Exception {
-        repository = TenantRepositoryImpl.getInstance();
-        values = new HashMap<String, String>();
-        values.put("name","Ziya");
+        this.repository = TenantRepositoryImpl.getInstance();
+        this.tenant = TenantFactory.getTenant("ziya");
     }
 
     @Test
     public void create() {
-        Tenant person = TenantFactory.getTenant("ziya");
-        repository.create(person);
-        assertEquals("ziya",person.getName());
+        Tenant created = this.repository.create(this.tenant);
+        assertNotNull(created.getTenantId());
     }
 
     @Test
     public void update() {
-        Tenant person = repository.read("1");
-        // String name="";
-        Tenant newPerson =  new Tenant.Builder().name(values.get("name")).build();
-        repository.update(newPerson);
-        Tenant UpdatePerson = repository.read("1");
-        assertEquals("ziya",UpdatePerson.getName());
+        Tenant updated =  new Tenant.Builder().tenantId("44444").build();
+        this.repository.update(updated);
+        assertEquals("44444",updated.getTenantId());
     }
 
     @Test
     public void delete() {
-        repository.delete("1");
-        Tenant person = repository.read("1");
-        assertNull(person);
+        this.repository.delete(tenant.getTenantId());
+        getAll();
     }
-
 
     @Test
     public void read() {
-        Tenant readperson = repository.read("1");
-        assertEquals("b12",readperson.getId());
+        Tenant read = this.repository.read(tenant.getTenantId());
+        System.out.println("In read, read = "+ read);
+        Assert.assertNotEquals(read,tenant.getTenantId());
+    }
+    @Test
+    public void getAll() {
+        Set<Tenant> tenantSet = this.repository.getAll();
+        System.out.println("getAll = " + tenantSet);
     }
 }

@@ -29,15 +29,15 @@ public class MoveInsRepositoryImpl implements MoveInsRepository {
 
     @Override
     public MoveIns create(MoveIns moveIns) {
-        moveInsMap.put(moveIns.getFlatNumb(),moveIns);
-        MoveIns savedR = moveInsMap.get(moveIns.getFlatNumb());
+        moveInsMap.put(moveIns.getMoveInId(),moveIns);
+        MoveIns savedR = moveInsMap.get(moveIns.getMoveInId());
         return savedR;
     }
 
     @Override
     public MoveIns update(MoveIns moveIns) {
-        moveInsMap.put(moveIns.getFlatNumb(),moveIns);
-        MoveIns savedR = moveInsMap.get(moveIns.getFlatNumb());
+        moveInsMap.put(moveIns.getMoveInId(),moveIns);
+        MoveIns savedR = moveInsMap.get(moveIns.getMoveInId());
         return savedR;
     }
 

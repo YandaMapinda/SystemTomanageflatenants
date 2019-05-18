@@ -15,6 +15,6 @@ public class LandlordFactoryTest {
         String phoneNum ="0219872378";
         Landlord f = LandlordFactory.getLandLord(name,email,surname,phoneNum);
         System.out.println(f);
-        Assert.assertNotNull(f.getName(),f.getSurname());
+        Assert.assertNotNull(f.getLandlordId());
     }
 }

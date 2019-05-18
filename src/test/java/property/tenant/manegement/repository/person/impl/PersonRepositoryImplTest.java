@@ -1,62 +1,60 @@
 package property.tenant.manegement.repository.person.impl;
 
 
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
-import property.tenant.manegement.factory.person.factory.Person;
+import org.junit.runners.MethodSorters;
+import property.tenant.manegement.domain.person.Person;
 import property.tenant.manegement.factory.person.factory.PersonFactory;
 import property.tenant.manegement.repository.person.PersonRepository;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Set;
 
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertNull;
 
+@FixMethodOrder(MethodSorters.JVM)
 public class PersonRepositoryImplTest {
 
-    Map<String,String> values;
-    PersonRepository repository;
+    private Person person;
+    private PersonRepository repository;
 
     @Before
     public void setUp() throws Exception {
-        repository = PersonRepositoryImpl.getRespository();
-        values = new HashMap<String, String>();
-        values.put("id","1");
-        values.put("name","John");
-        values.put("surname","Deo");
+        this.repository = PersonRepositoryImpl.getRespository();
+        this.person = PersonFactory.getPerson("ziya","map");
     }
 
     @Test
     public void create() throws Exception {
-        Person person = PersonFactory.getPerson("ziya","map","b12");
-        repository.create(person);
-        assertEquals("b12",person.getId());
+        Person created = this.repository.create(this.person);
+        System.out.println("In create, created = " + created);
+        assertEquals(created,this.person);
     }
-
-    @Test
-    public void read() throws Exception {
-        Person readperson = repository.read("1");
-        assertEquals("b12",readperson.getName());
-    }
-
     @Test
     public void update() throws Exception {
-        Person person = repository.read("1");
-       // String name="";
-        Person newPerson =  new Person.Builder().name(values.get("name"))
-                .surname(values.get("surname"))
-                .id(values.get("id")).build();
-        repository.update(newPerson);
-        Person UpdatePerson = repository.read("1");
-        assertEquals("1",UpdatePerson.getId());
+        Person updated =  new Person.Builder().surname("Jikijela").build();
+        this.repository.update(updated);
+        assertEquals("Jikijela",updated.surname);
     }
 
     @Test
-    public void delete() throws Exception {
-        repository.delete("1");
-        Person person = repository.read("1");
-        assertNull(person);
+    public void delete() {
+        this.repository.delete(person.getName());
+        getAll();
+    }
+
+    @Test
+    public void read() {
+        Person read = this.repository.read(person.getName());
+        System.out.println("In read, read = "+ read);
+        Assert.assertNotEquals(read,person.getName());
+    }
+    @Test
+    public void getAll() {
+        Set<Person> personSet = this.repository.getAll();
+        System.out.println("getAll = " + personSet);
     }
 
 }

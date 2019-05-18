@@ -1,36 +1,42 @@
 package property.tenant.manegement.domain.property;
 
+import java.util.Objects;
 import java.util.Set;
 
-public class RentalTransfers extends Rental{
-    private int rental_transfer_id,tenant_id,rental_id,from_unit_id,unit_id;
+public class RentalTransfers {
+    private String rental_transfer_id,tenant_id,rental_id,from_unit_id,unit_id;
     private String transfer_date,status;
-
+private Rental rental;
     private RentalTransfers(){}
     private RentalTransfers(Builder builder){
+
         this.from_unit_id=builder.from_unit_id;
         this.rental_transfer_id=builder.rental_transfer_id;
 
     }
 
-    public int getRental_transfer_id() {
+    public String getRental_transfer_id() {
         return rental_transfer_id;
     }
 
-    public int getTenant_id() {
+    public String getTenant_id() {
         return tenant_id;
     }
 
-    public int getRental_id() {
+    public String getRental_id() {
         return rental_id;
     }
 
-    public int getFrom_unit_id() {
+    public String getFrom_unit_id() {
         return from_unit_id;
     }
 
-    public int getUnit_id() {
+    public String getUnit_id() {
         return unit_id;
+    }
+
+    public Rental getRental() {
+        return rental;
     }
 
     public String getTransfer_date() {
@@ -42,14 +48,14 @@ public class RentalTransfers extends Rental{
     }
 
     public static class Builder {
-        private int rental_transfer_id,from_unit_id;
+        private String rental_transfer_id,from_unit_id;
         private Set<Rental>rentalSet;
-        public Builder rental_transfer_id(int rental_transfer_id) {
+        public Builder rental_transfer_id(String rental_transfer_id) {
             this.rental_transfer_id = rental_transfer_id;
             return this;
         }
 
-        public Builder from_unit_id(int from_unit_id) {
+        public Builder from_unit_id(String from_unit_id) {
             this.from_unit_id = from_unit_id;
             return this;
         }
@@ -65,5 +71,17 @@ public class RentalTransfers extends Rental{
                     ", tenant_id='" + from_unit_id  + '\'' +
                     '}';
         }
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RentalTransfers transfers = (RentalTransfers) o;
+        return transfers.equals(transfers.rental_transfer_id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(rental_transfer_id);
     }
 }
