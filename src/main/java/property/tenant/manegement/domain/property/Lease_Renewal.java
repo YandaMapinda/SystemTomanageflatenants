@@ -1,11 +1,8 @@
 package property.tenant.manegement.domain.property;
 
-import java.util.Objects;
-import java.util.Set;
-
 public class Lease_Renewal {
-
-    private String renewal_date,previous_end_date,new_lease_end_date,new_lease_period,lease_renewal_id;
+    private int lease_renewal_id,property_lease_id;
+    private String renewal_date,previous_end_date,new_lease_end_date,new_lease_period;
     private double lease_amount,renewal_charges;
 
     private Lease_Renewal(){}
@@ -14,14 +11,16 @@ public class Lease_Renewal {
         this.new_lease_end_date=builder.new_lease_end_date;
         this.new_lease_period=builder.new_lease_period;
         this.renewal_date=builder.renewal_date;
-        this.lease_renewal_id=builder.lease_renewal_id;
 
     }
 
-    public String getLease_renewal_id() {
+    public int getLease_renewal_id() {
         return lease_renewal_id;
     }
 
+    public int getProperty_lease_id() {
+        return property_lease_id;
+    }
 
     public String getRenewal_date() {
         return renewal_date;
@@ -47,17 +46,13 @@ public class Lease_Renewal {
         return renewal_charges;
     }
     public static class Builder {
-        private String new_lease_end_date, new_lease_period, renewal_date,lease_renewal_id;
-        private Set<Lease> leaseSet;
+        private String new_lease_end_date, new_lease_period, renewal_date;
 
         public Builder new_lease_end_date(String new_lease_end_date) {
             this.new_lease_end_date = new_lease_end_date;
             return this;
         }
-        public Builder lease_renewal_id(String lease_renewal_id) {
-            this.lease_renewal_id = lease_renewal_id;
-            return this;
-        }
+
         public Builder new_lease_period(String new_lease_period) {
             this.new_lease_period = new_lease_period;
             return this;
@@ -80,18 +75,7 @@ public class Lease_Renewal {
                     '}';
         }
     }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Lease_Renewal lease = (Lease_Renewal) o;
-        return lease.equals(lease.lease_renewal_id);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(lease_renewal_id);
-    }
 
 
 }

@@ -15,9 +15,6 @@ public class AccountServiceImplTest {
     private AccountRepositoryImpl repository;
     private Account account;
 
-    private Account getSaved(){
-        return this.repository.getAll().iterator().next();
-    }
 
 
     @Before

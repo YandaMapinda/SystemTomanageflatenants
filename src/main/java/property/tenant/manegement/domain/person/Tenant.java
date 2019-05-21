@@ -1,47 +1,41 @@
 package property.tenant.manegement.domain.person;
 
-import java.util.Objects;
-import java.util.Set;
-
 public class Tenant {
     private String name;
     private String surname;
     private String phoneNum;
     private boolean is_active,employed;
-    private String tenantId;
 
-    private Person person ;
+    Person person;
     Address contact;
 
-    private Tenant(){super();
+    private Tenant(){
     }
     private Tenant(Builder builder){
-        this.tenantId = builder.tenantId;
+        //this.idNum = builder.idNum;
         this.name = builder.name;
         this.surname = builder.surname;
         this.phoneNum = builder.phoneNum;
 
     }
 
-    public boolean isIs_active() {
-        return is_active;
+    public String getName() {
+        return name;
     }
 
-    public boolean isEmployed() {
-        return employed;
+    public String getSurname() {
+        return surname;
     }
 
-    public String getTenantId() {
-        return tenantId;
+    public String getPhoneNum() {
+        return phoneNum;
     }
 
-    public Address getContact() {
-        return contact;
-    }
+
 
     public static class Builder{
-        private String name,surname,phoneNum,tenantId;
-        private Set<Person> personSet;
+        private String name,surname,phoneNum;
+        private long idNum;
         public Builder name(String name) {
             this.name=name;
             return this;
@@ -57,8 +51,8 @@ public class Tenant {
             return this;
         }
 
-        public Builder tenantId(String tenantId) {
-            this.tenantId=tenantId;
+        public Builder idNum(Long idNum) {
+            this.idNum=idNum;
             return this;
         }
         public Tenant build() {
@@ -70,20 +64,9 @@ public class Tenant {
                     "Name='" + name + '\'' +
                     ", Surname='" + surname + '\'' +
                     ", Phone number='" + phoneNum + '\'' +
-                    ", ID number=" + tenantId +
+                    ", ID number=" + idNum +
                     '}';
         }
     }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Tenant tenant = (Tenant) o;
-        return tenant.equals(tenant.tenantId);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(tenantId);
-    }
 }

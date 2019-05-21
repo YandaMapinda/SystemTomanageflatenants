@@ -1,7 +1,5 @@
 package property.tenant.manegement.domain.accounting.report;
 
-import java.util.Objects;
-
 public class Transaction_Type {
     private int transaction_status_id;
     private String transaction_status_name;
@@ -42,17 +40,5 @@ public class Transaction_Type {
                     ", transaction_status_id='" + transaction_status_id + '\'' +
                     '}';
         }
-    }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Transaction_Type transactionType = (Transaction_Type) o;
-        return transactionType.equals(transactionType.transaction_status_id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(transaction_status_id);
     }
 }

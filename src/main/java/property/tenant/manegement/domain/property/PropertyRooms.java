@@ -1,31 +1,23 @@
 package property.tenant.manegement.domain.property;
 
-import java.util.Objects;
-import java.util.Set;
-
 public class PropertyRooms {
-    private int unit_id,occupants_no;
-    private String unit_name,property_id,roomId;
+    private int unit_id,property_id,occupants_no;
+    private String unit_name;
     private boolean is_vacant,is_active;
-private Property property;
+
 
     private PropertyRooms(){}
     private PropertyRooms(Builder builder){
         this.unit_name=builder.unit_name;
         this.is_vacant=builder.is_vacant;
-        this.roomId=builder.roomId;
 
-    }
-
-    public String getRoomId() {
-        return roomId;
     }
 
     public int getUnit_id() {
         return unit_id;
     }
 
-    public String getProperty_id() {
+    public int getProperty_id() {
         return property_id;
     }
 
@@ -46,13 +38,8 @@ private Property property;
     }
     public static class Builder {
         private boolean is_vacant;
-        private String unit_name,roomId;
-        private Set<Property> propertySet;
+        private String unit_name;
 
-        public Builder roomId(String roomId) {
-            this.roomId = roomId;
-            return this;
-        }
         public Builder unit_name(String unit_name) {
             this.unit_name = unit_name;
             return this;
@@ -75,16 +62,5 @@ private Property property;
                     '}';
         }
     }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        PropertyRooms propertyRooms = (PropertyRooms) o;
-        return propertyRooms.equals(propertyRooms.roomId);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(roomId);
-    }
 }

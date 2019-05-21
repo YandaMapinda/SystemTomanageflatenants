@@ -1,24 +1,14 @@
 package property.tenant.manegement.domain.accounting.report;
 
-import property.tenant.manegement.domain.payments.Payment;
-import property.tenant.manegement.domain.property.Property;
-import property.tenant.manegement.domain.property.Rental;
-
-import java.util.Objects;
-
 public class Tenant_statement {
-    private Payment payment ;
-    private Rental rental = new Rental();
-    private Property property ;
     private int rental_id,payment_id;
-    private String tenant_name,property_name,property_type_name,payment_date,payment_number,id;
+    private String tenant_name,property_name,property_type_name,payment_date,payment_number;
     private double rent_To_Pay,rent_paid,balance;
 
     private Tenant_statement(){}
     private Tenant_statement(Builder builder){
         this.rent_To_Pay=builder.rent_To_Pay;
         this.rent_paid=builder.rent_paid;
-        this.id = builder.id;
     }
 
     public int getRental_id() {
@@ -57,21 +47,11 @@ public class Tenant_statement {
         return rent_paid;
     }
 
-    public String getId() {
-        return id;
-    }
-
     public double getBalance() {
         return balance;
     }
     public static class Builder {
         private double rent_To_Pay,rent_paid;
-        private  String id;
-
-        public Builder id(String id){
-            this.id=id;
-            return this;
-        }
 
         public Builder rent_To_Pay(double rent_To_Pay) {
             this.rent_To_Pay = rent_To_Pay;
@@ -92,16 +72,5 @@ public class Tenant_statement {
                     '}';
         }
     }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Tenant_statement statement = (Tenant_statement) o;
-        return statement.equals(statement.id);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }

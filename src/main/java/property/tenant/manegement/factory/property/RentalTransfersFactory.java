@@ -1,11 +1,10 @@
 package property.tenant.manegement.factory.property;
 
 import property.tenant.manegement.domain.property.RentalTransfers;
-import property.tenant.manegement.util.Misc;
 
 public class RentalTransfersFactory {
-    public static RentalTransfers getRentalTransfers(int rental_transfer_id){
-        return new RentalTransfers.Builder().rental_transfer_id(Misc.generateId()).
-                from_unit_id(Misc.generateId()).build();
+    public static RentalTransfers getRentalTransfers(int rental_transfer_id, int from_unit_id){
+        return new RentalTransfers.Builder().rental_transfer_id(rental_transfer_id).
+                from_unit_id(from_unit_id).build();
     }
 }

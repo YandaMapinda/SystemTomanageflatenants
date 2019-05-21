@@ -1,14 +1,11 @@
 package property.tenant.manegement.domain.accounting.report;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-
-import java.util.Objects;
-
-@EntityScan
 public class Bank_Accounts {
-    private Account account = null;
-    private  String bank_account_name,bank_account_id,account_id;
-    private  String bank_account_number;
+    private int bank_account_id;
+    private int bank_branch_id;
+    private int account_id;
+    private  String bank_account_name;
+    private  int bank_account_number;
     private  boolean is_active;
 
     private Bank_Accounts(){}
@@ -17,11 +14,15 @@ public class Bank_Accounts {
         this.bank_account_number=builder.bank_account_number;
     }
 
-    public String getBank_account_id() {
+    public int getBank_account_id() {
         return bank_account_id;
     }
 
-    public String getAccount_id() {
+    public int getBank_branch_id() {
+        return bank_branch_id;
+    }
+
+    public int getAccount_id() {
         return account_id;
     }
 
@@ -29,7 +30,7 @@ public class Bank_Accounts {
         return bank_account_name;
     }
 
-    public String getBank_account_number() {
+    public int getBank_account_number() {
         return bank_account_number;
     }
 
@@ -38,20 +39,15 @@ public class Bank_Accounts {
     }
     public static class Builder {
         private String bank_account_name;
-        private String bank_account_number;
+        private int bank_account_number;
 
-        public Builder bank_account_number(String bank_account_number) {
+        public Builder bank_account_number(int bank_account_number) {
             this.bank_account_number = bank_account_number;
             return this;
         }
 
         public Builder bank_account_name(String bank_account_name) {
             this.bank_account_name = bank_account_name;
-            return this;
-        }
-        public Builder copy(Bank_Accounts builder){
-            this.bank_account_name=builder.bank_account_name;
-            this.bank_account_number=builder.bank_account_number;
             return this;
         }
         public Bank_Accounts build() {
@@ -63,17 +59,5 @@ public class Bank_Accounts {
                     ", bank_account_number='" + bank_account_number + '\'' +
                     '}';
         }
-    }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Bank_Accounts bankAccounts = (Bank_Accounts) o;
-        return bankAccounts.equals(bankAccounts.bank_account_id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(bank_account_id);
     }
 }

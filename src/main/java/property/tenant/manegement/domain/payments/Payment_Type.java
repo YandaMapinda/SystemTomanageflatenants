@@ -1,16 +1,12 @@
 package property.tenant.manegement.domain.payments;
 
-import java.util.Set;
-
-public class Payment_Type extends Payment{
+public class Payment_Type {
     private int payment_type_id;
-    private String account_id;
+    private int account_id;
     private String payment_type_name;
     private  boolean is_active;
 
-    private Payment_Type(){
-        super();
-    }
+    private Payment_Type(){}
     private Payment_Type(Builder builder){
       this.account_id=builder.account_id;
       this.payment_type_name=builder.payment_type_name;
@@ -20,7 +16,7 @@ public class Payment_Type extends Payment{
         return payment_type_id;
     }
 
-    public String getAccount_id() {
+    public int getAccount_id() {
         return account_id;
     }
 
@@ -33,16 +29,15 @@ public class Payment_Type extends Payment{
     }
 
     public static class Builder {
-        private String account_id;
+        private int account_id;
         private String payment_type_name;
-        private Set<Payment>paymentSet;
 
         public Builder payment_type_name(String payment_type_name) {
             this.payment_type_name = payment_type_name;
             return this;
         }
 
-        public Builder account_id(String account_id) {
+        public Builder account_id(int account_id) {
             this.account_id = account_id;
             return this;
         }
