@@ -1,42 +1,39 @@
 package property.tenant.manegement.domain.person;
 
-public class Landlord {
-    private String name,email;
-    private String surname;
-    private String phoneNum;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-    Person person;
+import java.util.Objects;
+import java.util.Set;
+@EntityScan
+public class Landlord {
+    private String landlordId;
+    private Person person = new Person();
     Address contact;
 
-    private Landlord(){}
+    protected Landlord(){}
     private Landlord(Builder builder){
-        this.email = builder.email;
-        this.name = builder.name;
-        this.surname = builder.surname;
-        this.phoneNum = builder.phoneNum;
+        person.name = builder.name;
+        person.email = builder.email;
+        person.surname = builder.surname;
+        person.phoneNum = builder.phoneNum;
+        this.landlordId=builder.landlordId;
     }
 
-    public String getName() {
-        return name;
+    public String getLandlordId() {
+        return landlordId;
     }
 
-    public String getEmail() {
-        return email;
+    public Person getPerson() {
+        return person;
     }
 
-    public String getSurname() {
-        return surname;
+    public Address getContact() {
+        return contact;
     }
-
-    public String getPhoneNum() {
-        return phoneNum;
-    }
-
-
 
     public static class Builder{
-        private String name,surname,phoneNum,email;
-
+        private String name,surname,phoneNum,email,landlordId;
+        private Set<Person> personSet;
         public Builder name(String name) {
             this.name=name;
             return this;
@@ -51,7 +48,10 @@ public class Landlord {
             this.phoneNum=phoneNum;
             return this;
         }
-
+        public Builder landlordId(String landlordId) {
+            this.landlordId=landlordId;
+            return this;
+        }
         public Builder email(String email) {
             this.email=email;
             return this;
@@ -65,8 +65,20 @@ public class Landlord {
                     "Name='" + name + '\'' +
                     ", Surname='" + surname + '\'' +
                     ", Phone number='" + phoneNum + '\'' +
-                    ", Email Address=" + email +
+                    ", Email Address=" +  +
                     '}';
         }
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Landlord landlord = (Landlord) o;
+        return landlord.equals(landlord.landlordId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(landlordId);
     }
 }

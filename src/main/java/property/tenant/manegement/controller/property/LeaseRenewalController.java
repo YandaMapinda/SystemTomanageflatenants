@@ -1,6 +1,7 @@
 package property.tenant.manegement.controller.property;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import property.tenant.manegement.domain.property.Lease_Renewal;
 import property.tenant.manegement.factory.property.Lease_RenewalFactory;
@@ -12,6 +13,7 @@ import java.util.Set;
 public class LeaseRenewalController {
 
     @Autowired
+    @Qualifier("ServiceLeaseRenewalImpl")
     private LeaseRenewalServiceImpl service;
 
     @GetMapping("/create/{new_lease_end_date,new_lease_period,renewal_date}")

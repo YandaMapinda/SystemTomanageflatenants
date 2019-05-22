@@ -1,8 +1,18 @@
 package property.tenant.manegement.domain.accounting.report;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import property.tenant.manegement.domain.payments.Payment;
+import property.tenant.manegement.domain.property.Property;
+import property.tenant.manegement.domain.property.Rental;
+
+import java.util.Objects;
+@EntityScan
 public class Receipts {
+    private Payment payment ;
+    private Rental rental ;
+    private Property property ;
     private int payment_id,payment_type_id,period_id,property_id,rental_id;
-    private String payment_number,payment_date,property_name,tenant_name;
+    private String payment_number,payment_date,property_name,tenant_name,id;
     private double account_credit;
     private double balance;
 
@@ -10,7 +20,7 @@ public class Receipts {
     private Receipts(Builder builder){
         this.tenant_name=builder.tenant_name;
         this.balance=builder.balance;
-        ///this.payment_date=builder.payment_date;
+        this.id=builder.id;
     }
 
     public int getPayment_id() {
@@ -49,6 +59,10 @@ public class Receipts {
         return tenant_name;
     }
 
+    public String getId() {
+        return id;
+    }
+
     public double getAccount_credit() {
         return account_credit;
     }
@@ -57,7 +71,7 @@ public class Receipts {
         return balance;
     }
     public static class Builder {
-        private String tenant_name;
+        private String tenant_name,id;
         private double balance;
 
         public Builder balance(double balance) {
@@ -67,6 +81,10 @@ public class Receipts {
 
         public Builder tenant_name(String tenant_name) {
             this.tenant_name = tenant_name;
+            return this;
+        }
+        public Builder id(String id) {
+            this.id = id;
             return this;
         }
         public Receipts build() {
@@ -79,6 +97,17 @@ public class Receipts {
                     '}';
         }
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Receipts receipts = (Receipts) o;
+        return receipts.equals(receipts.id);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
 }

@@ -1,12 +1,13 @@
 package property.tenant.manegement.repository.payments.impl;
 
+import org.springframework.stereotype.Repository;
 import property.tenant.manegement.domain.payments.Payment;
 import property.tenant.manegement.repository.payments.PaymentRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+@Repository("InPaymentMemory")
 public class PaymentRepositoryImpl implements PaymentRepository {
 
     private static PaymentRepositoryImpl repository = null;

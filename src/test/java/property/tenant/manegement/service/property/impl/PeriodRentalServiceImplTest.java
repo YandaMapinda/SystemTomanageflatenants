@@ -46,14 +46,14 @@ public class PeriodRentalServiceImplTest {
 
     @Test
     public void delete() {
-        this.repository.delete(lease.getTerm());
+        this.repository.delete(lease.getPeriod_id());
         getAll();
     }
 
     @Test
     public void read() {
-        Period_Rentals read = this.repository.read(lease.getTerm());
+        Period_Rentals read = this.repository.read(lease.getPeriod_id());
         System.out.println("In read, read = "+ read);
-        Assert.assertSame(read, lease.getTerm());
+        Assert.assertNotEquals(read, lease.getPeriod_id());
     }
 }

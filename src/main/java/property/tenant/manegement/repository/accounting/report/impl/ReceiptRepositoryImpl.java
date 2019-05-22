@@ -1,12 +1,14 @@
 package property.tenant.manegement.repository.accounting.report.impl;
 
+
+import org.springframework.stereotype.Repository;
 import property.tenant.manegement.domain.accounting.report.Receipts;
 import property.tenant.manegement.repository.accounting.report.ReceiptRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+@Repository("InReceiptMemory")
 public class ReceiptRepositoryImpl implements ReceiptRepository {
 
     private static ReceiptRepositoryImpl repository = null;

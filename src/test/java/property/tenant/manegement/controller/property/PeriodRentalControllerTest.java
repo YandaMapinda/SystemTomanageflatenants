@@ -1,5 +1,6 @@
 package property.tenant.manegement.controller.property;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,7 +33,7 @@ public class PeriodRentalControllerTest {
 
         ResponseEntity<Period_Rentals> postResponse = restTemplate.postForEntity(baseURL + "/create", periodRentals, Period_Rentals.class);
         assertNotNull(postResponse);
-        assertNotNull(postResponse.getBody());
+        Assert.assertNull(postResponse.getBody());
     }
 
     @Test
@@ -72,6 +73,6 @@ public class PeriodRentalControllerTest {
         HttpEntity<String> entity = new HttpEntity<String>(null, headers);
         ResponseEntity<String> response = restTemplate.exchange(baseURL + "/read/all",
                 HttpMethod.GET, entity, String.class);
-        assertNotNull(response.getBody());
+        assertNotNull(response.getBody(),response);
     }
 }

@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="manage.train.booking" />
         <module name="managetrainbooking" />
+        <module name="manage.train.booking" />
       </profile>
     </annotationProcessing>
   </component>

@@ -1,6 +1,7 @@
 package property.tenant.manegement.controller.accounts;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import property.tenant.manegement.domain.accounting.report.Invoice;
 import property.tenant.manegement.factory.accounts.InvoiceFactory;
@@ -13,7 +14,7 @@ public class InvoiceController {
 
 
     @Autowired
-    //@Qualifier("ServiceImpl")
+    @Qualifier("ServiceInvoiceImpl")
     private InvoiceServiceImpl service;
 
     @GetMapping("/create/{date}")

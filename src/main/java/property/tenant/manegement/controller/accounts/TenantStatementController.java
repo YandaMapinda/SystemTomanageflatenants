@@ -1,6 +1,7 @@
 package property.tenant.manegement.controller.accounts;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import property.tenant.manegement.domain.accounting.report.Tenant_statement;
 import property.tenant.manegement.factory.accounts.Tenant_statementFactory;
@@ -12,6 +13,7 @@ import java.util.Set;
 public class TenantStatementController {
 
     @Autowired
+    @Qualifier("ServiceTenantStatementImpl")
     private TenantStatementServiceImpl service;
 
     @GetMapping("/create/{courseName}")

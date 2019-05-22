@@ -1,12 +1,13 @@
 package property.tenant.manegement.repository.property.impl;
 
+import org.springframework.stereotype.Repository;
 import property.tenant.manegement.domain.property.PropertyRooms_Type;
 import property.tenant.manegement.repository.property.PropertyRoomTypeRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+@Repository("InPropertyRoomTypeMemory")
 public class PropertyRoomTypeRepositoryImpl implements PropertyRoomTypeRepository {
 
     private static PropertyRoomTypeRepositoryImpl repository = null;

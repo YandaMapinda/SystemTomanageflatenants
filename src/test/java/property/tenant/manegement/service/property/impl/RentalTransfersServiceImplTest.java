@@ -18,7 +18,7 @@ public class RentalTransfersServiceImplTest {
     public void setUp() throws Exception {
 
         this.repository = RentalTransferRepositoryImpl.getInstance();
-        this.lease = RentalTransfersFactory.getRentalTransfers(000);
+        this.lease = RentalTransfersFactory.getRentalTransfers("988");
     }
 
     @Test

@@ -1,5 +1,7 @@
 package property.tenant.manegement.service.accounts.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import property.tenant.manegement.domain.accounting.report.Receipts;
 import property.tenant.manegement.repository.accounting.report.ReceiptRepository;
@@ -7,9 +9,10 @@ import property.tenant.manegement.repository.accounting.report.impl.ReceiptRepos
 import property.tenant.manegement.service.accounts.ReceiptService;
 
 import java.util.Set;
-@Service
+@Service("ServiceReceiptImpl")
 public class ReceiptServiceImpl implements ReceiptService {
-
+    @Autowired
+    @Qualifier("InReceiptMemory")
     private static ReceiptServiceImpl service = null;
     private ReceiptRepository repository;
 

@@ -1,12 +1,13 @@
 package property.tenant.manegement.repository.property.impl;
 
+import org.springframework.stereotype.Repository;
 import property.tenant.manegement.domain.property.Log_Rentals;
 import property.tenant.manegement.repository.property.LogRentalRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+@Repository("InLogRentalMemory")
 public class LogRentalRepositoryImpl implements LogRentalRepository {
 
     private static LogRentalRepositoryImpl repository = null;

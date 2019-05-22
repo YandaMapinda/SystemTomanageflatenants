@@ -9,10 +9,10 @@ import property.tenant.manegement.repository.accounting.report.impl.AccountRepos
 import property.tenant.manegement.service.accounts.AccountService;
 
 import java.util.Set;
-@Service("ServiceImpl")
+@Service("ServiceAccountImpl")
 public class AccountServiceImpl implements AccountService {
     @Autowired
-    @Qualifier("InMemory")
+    @Qualifier("InAccountMemory")
 
     private static AccountServiceImpl service = null;
     private AccountRepository repository;

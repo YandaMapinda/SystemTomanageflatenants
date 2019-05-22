@@ -7,7 +7,7 @@ import property.tenant.manegement.domain.property.RentalTransfers;
 public class RentalTransfersFactoryTest {
     @Test
     public void testRentalTransfers(){
-        int rental_transfer_id =445;
+        String rental_transfer_id ="56y";
       //  int from_unit_id=556;
         RentalTransfers f = RentalTransfersFactory.getRentalTransfers(rental_transfer_id);
         System.out.println(f);

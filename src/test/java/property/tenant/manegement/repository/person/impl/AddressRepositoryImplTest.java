@@ -2,7 +2,13 @@ package property.tenant.manegement.repository.person.impl;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import property.tenant.manegement.domain.person.Address;
 import property.tenant.manegement.factory.person.factory.AddressFactory;
 import property.tenant.manegement.repository.person.AddressRepository;
@@ -10,10 +16,13 @@ import property.tenant.manegement.repository.person.AddressRepository;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
-
+@SpringBootTest
+@RunWith(SpringRunner.class)
+@FixMethodOrder(MethodSorters.JVM)
 public class AddressRepositoryImplTest {
-    private Address address;
+    @Autowired
     private AddressRepository repository;
+    private Address address;
 
     @Before
     public void setUp() throws Exception {

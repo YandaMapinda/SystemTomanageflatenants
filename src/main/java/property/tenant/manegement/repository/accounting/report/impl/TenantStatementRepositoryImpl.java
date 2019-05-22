@@ -1,12 +1,14 @@
 package property.tenant.manegement.repository.accounting.report.impl;
 
+
+import org.springframework.stereotype.Repository;
 import property.tenant.manegement.domain.accounting.report.Tenant_statement;
 import property.tenant.manegement.repository.accounting.report.TenantStatementRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+@Repository("InTenantStatementMemory")
 public class TenantStatementRepositoryImpl implements TenantStatementRepository {
     private static TenantStatementRepositoryImpl repository = null;
 

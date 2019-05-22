@@ -28,7 +28,7 @@ public class LeasePaymentControllerTest {
 
     @Test
     public void create() {
-        Lease_Payments leasePayments = Lease_PaymentsFactory.getLease_Payments(555);
+        Lease_Payments leasePayments = Lease_PaymentsFactory.getLease_Payments("77");
 
         ResponseEntity<Lease_Payments> postResponse = restTemplate.postForEntity(baseURL + "/create", leasePayments, Lease_Payments.class);
         assertNotNull(postResponse);

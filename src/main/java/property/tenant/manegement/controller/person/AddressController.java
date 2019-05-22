@@ -1,6 +1,7 @@
 package property.tenant.manegement.controller.person;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import property.tenant.manegement.domain.person.Address;
 import property.tenant.manegement.factory.person.factory.AddressFactory;
@@ -11,6 +12,7 @@ import java.util.Set;
 @RequestMapping("/SystemTomanageflatenants/address")
 public class AddressController {
     @Autowired
+    @Qualifier("ServiceAddressImpl")
     private AddressServiceImpl service;
 
     @GetMapping("/create/{city,street}")

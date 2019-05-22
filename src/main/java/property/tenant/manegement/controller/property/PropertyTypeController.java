@@ -1,6 +1,7 @@
 package property.tenant.manegement.controller.property;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import property.tenant.manegement.domain.property.Property_Types;
 import property.tenant.manegement.service.property.impl.PropertyTypeServiceImpl;
@@ -11,6 +12,7 @@ import java.util.Set;
 public class PropertyTypeController {
 
     @Autowired
+    @Qualifier("ServicePropertyTypelImpl")
     private PropertyTypeServiceImpl service;
 
     @PostMapping("/create")

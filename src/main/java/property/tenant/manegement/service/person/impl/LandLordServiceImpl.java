@@ -1,5 +1,7 @@
 package property.tenant.manegement.service.person.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import property.tenant.manegement.domain.person.Landlord;
 import property.tenant.manegement.repository.person.impl.LandlordRepositoryImpl;
@@ -7,9 +9,10 @@ import property.tenant.manegement.repository.person.LandlordRepository;
 import property.tenant.manegement.service.person.LandLordService;
 
 import java.util.Set;
-@Service
+@Service("ServiceLandlordImpl")
 public class LandLordServiceImpl implements LandLordService {
-
+    @Autowired
+    @Qualifier("InLandlordMemory")
     private static LandLordServiceImpl service = null;
     private LandlordRepository repository;
 

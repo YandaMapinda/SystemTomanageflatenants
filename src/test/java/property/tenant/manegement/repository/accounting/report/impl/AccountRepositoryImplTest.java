@@ -2,7 +2,13 @@ package property.tenant.manegement.repository.accounting.report.impl;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import property.tenant.manegement.domain.accounting.report.Account;
 import property.tenant.manegement.factory.accounts.AccountFactory;
 import property.tenant.manegement.repository.accounting.report.AccountRepository;
@@ -10,12 +16,12 @@ import property.tenant.manegement.repository.accounting.report.AccountRepository
 import java.util.Set;
 
 import static junit.framework.TestCase.assertEquals;
-//@SpringBootTest
-//@RunWith(SpringRunner.class)
-//@FixMethodOrder(MethodSorters.JVM)
+@SpringBootTest
+@RunWith(SpringRunner.class)
+@FixMethodOrder(MethodSorters.JVM)
 public class AccountRepositoryImplTest {
-    //@Autowired
-    AccountRepository repository;
+    @Autowired
+    private AccountRepository repository;
     private Account account;
 
     @Before

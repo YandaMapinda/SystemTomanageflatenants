@@ -1,6 +1,7 @@
 package property.tenant.manegement.controller.property;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import property.tenant.manegement.domain.property.RentalTransfers;
 import property.tenant.manegement.service.property.impl.RentalTransfersServiceImpl;
@@ -10,6 +11,7 @@ import java.util.Set;
 @RequestMapping("/rentalTransfers")
 public class RentalTransfersController {
     @Autowired
+    @Qualifier("ServiceRentalTransfersImpl")
     private RentalTransfersServiceImpl service;
 
     @PostMapping("/create")
