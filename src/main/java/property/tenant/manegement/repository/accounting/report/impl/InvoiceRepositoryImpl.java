@@ -1,11 +1,12 @@
 package property.tenant.manegement.repository.accounting.report.impl;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import property.tenant.manegement.domain.accounting.report.Invoice;
 import property.tenant.manegement.repository.accounting.report.InvoiceRepository;
 
 import java.util.*;
-@Service
+@Repository("InInvoiceMemory")
 public class InvoiceRepositoryImpl implements InvoiceRepository {
     private static InvoiceRepositoryImpl repository = null;
 

@@ -1,12 +1,13 @@
 package property.tenant.manegement.repository.property.impl;
 
+import org.springframework.stereotype.Repository;
 import property.tenant.manegement.domain.property.MoveIns;
 import property.tenant.manegement.repository.property.MoveInsRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+@Repository("InMoveInsMemory")
 public class MoveInsRepositoryImpl implements MoveInsRepository {
 
     private static MoveInsRepositoryImpl repository = null;

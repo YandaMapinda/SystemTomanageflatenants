@@ -1,10 +1,11 @@
 package property.tenant.manegement.repository.person.impl;
 
+import org.springframework.stereotype.Repository;
 import property.tenant.manegement.domain.person.Person;
 import property.tenant.manegement.repository.person.PersonRepository;
 
 import java.util.*;
-
+@Repository("InPersonMemory")
 public class PersonRepositoryImpl implements PersonRepository {
 
     private static PersonRepositoryImpl respository = null;

@@ -1,12 +1,13 @@
 package property.tenant.manegement.repository.property.impl;
 
+import org.springframework.stereotype.Repository;
 import property.tenant.manegement.domain.property.RentalTransfers;
 import property.tenant.manegement.repository.property.RentalTransferRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+@Repository("InRentalTransfersMemory")
 public class RentalTransferRepositoryImpl implements RentalTransferRepository {
     private static RentalTransferRepositoryImpl repository = null;
 

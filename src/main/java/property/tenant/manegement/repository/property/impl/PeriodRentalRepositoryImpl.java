@@ -1,12 +1,13 @@
 package property.tenant.manegement.repository.property.impl;
 
+import org.springframework.stereotype.Repository;
 import property.tenant.manegement.domain.property.Period_Rentals;
 import property.tenant.manegement.repository.property.PeriodRentalRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+@Repository("InPeriodRentalMemory")
 public class PeriodRentalRepositoryImpl implements PeriodRentalRepository {
     private static PeriodRentalRepositoryImpl repository = null;
 

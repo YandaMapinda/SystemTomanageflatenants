@@ -1,5 +1,7 @@
 package property.tenant.manegement.service.property.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import property.tenant.manegement.domain.property.Lease_Renewal;
 import property.tenant.manegement.repository.property.impl.LeaseRenewalRepositoryImpl;
@@ -7,9 +9,10 @@ import property.tenant.manegement.repository.property.LeaseRenewalRepository;
 import property.tenant.manegement.service.property.LeaseRenewalService;
 
 import java.util.Set;
-@Service
+@Service("ServiceLeaseRenewalImpl")
 public class LeaseRenewalServiceImpl implements LeaseRenewalService {
-
+    @Autowired
+    @Qualifier("InLeaseRenewalMemory")
     private static LeaseRenewalServiceImpl service = null;
     private LeaseRenewalRepository repository;
 

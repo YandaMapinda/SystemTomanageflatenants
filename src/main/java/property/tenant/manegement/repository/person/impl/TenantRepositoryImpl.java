@@ -1,10 +1,11 @@
 package property.tenant.manegement.repository.person.impl;
 
+import org.springframework.stereotype.Repository;
 import property.tenant.manegement.domain.person.Tenant;
 import property.tenant.manegement.repository.person.TenantRepository;
 
 import java.util.*;
-
+@Repository("InTenantMemory")
 public class TenantRepositoryImpl implements TenantRepository {
 
     private static TenantRepositoryImpl repository = null;

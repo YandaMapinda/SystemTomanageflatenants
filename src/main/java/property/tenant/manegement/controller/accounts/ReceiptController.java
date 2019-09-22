@@ -1,9 +1,11 @@
 package property.tenant.manegement.controller.accounts;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import property.tenant.manegement.domain.accounting.report.Receipts;
 import property.tenant.manegement.factory.accounts.ReceiptsFactory;
+import property.tenant.manegement.service.accounts.ReceiptService;
 import property.tenant.manegement.service.accounts.impl.ReceiptServiceImpl;
 
 import java.util.Set;
@@ -12,9 +14,10 @@ import java.util.Set;
 public class ReceiptController {
 
     @Autowired
-    private ReceiptServiceImpl service;
+    @Qualifier("ServiceReceiptImpl")
+    private ReceiptService service;
 
-    @GetMapping("/create/{courseName}")
+    @GetMapping("/create/{tenantName}")
     public @ResponseBody
     Receipts create(@PathVariable String tenantName){
         Receipts receipts = ReceiptsFactory.getReceipts(tenantName,600);

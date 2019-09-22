@@ -1,10 +1,11 @@
 package property.tenant.manegement.repository.person.impl;
 
+import org.springframework.stereotype.Repository;
 import property.tenant.manegement.domain.person.Address;
 import property.tenant.manegement.repository.person.AddressRepository;
 
 import java.util.*;
-
+@Repository("InAddressMemory")
 public class AddressRepositoryImpl implements AddressRepository {
 
     private static AddressRepositoryImpl repository = null;

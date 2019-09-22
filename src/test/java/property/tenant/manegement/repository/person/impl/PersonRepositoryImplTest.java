@@ -5,7 +5,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import property.tenant.manegement.domain.person.Person;
 import property.tenant.manegement.factory.person.factory.PersonFactory;
 import property.tenant.manegement.repository.person.PersonRepository;
@@ -13,12 +17,13 @@ import property.tenant.manegement.repository.person.PersonRepository;
 import java.util.Set;
 
 import static junit.framework.TestCase.assertEquals;
-
+@SpringBootTest
+@RunWith(SpringRunner.class)
 @FixMethodOrder(MethodSorters.JVM)
 public class PersonRepositoryImplTest {
-
-    private Person person;
+@Autowired
     private PersonRepository repository;
+    private Person person;
 
     @Before
     public void setUp() throws Exception {

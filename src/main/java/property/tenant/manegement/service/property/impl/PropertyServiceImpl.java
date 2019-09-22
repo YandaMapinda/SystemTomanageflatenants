@@ -1,5 +1,7 @@
 package property.tenant.manegement.service.property.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import property.tenant.manegement.domain.property.Property;
 import property.tenant.manegement.repository.property.impl.PropertyRepositoryImpl;
@@ -7,9 +9,10 @@ import property.tenant.manegement.repository.property.PropertyRepository;
 import property.tenant.manegement.service.property.PropertyService;
 
 import java.util.Set;
-@Service
+@Service("ServicePropertylImpl")
 public class PropertyServiceImpl implements PropertyService {
-
+    @Autowired
+    @Qualifier("InPropertyMemory")
     private static PropertyServiceImpl service = null;
     private PropertyRepository repository;
 

@@ -1,6 +1,7 @@
 package property.tenant.manegement.controller.property;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import property.tenant.manegement.domain.property.Lease_Transfer;
 import property.tenant.manegement.factory.property.Lease_TransferFactory;
@@ -12,6 +13,7 @@ import java.util.Set;
 public class LeaseTransferController {
 
     @Autowired
+    @Qualifier("ServiceLeaseTransferImpl")
     private LeaseTransferServiceImpl service;
 
     @GetMapping("/create/{transfer_date,tenant_id,from_property_lease_id}")

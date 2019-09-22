@@ -2,19 +2,27 @@ package property.tenant.manegement.repository.property.impl;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import property.tenant.manegement.domain.property.RentalTransfers;
 import property.tenant.manegement.factory.property.RentalTransfersFactory;
 import property.tenant.manegement.repository.property.RentalTransferRepository;
 
 import static com.sun.deploy.config.JREInfo.getAll;
 import static org.junit.Assert.assertEquals;
-
+@SpringBootTest
+@RunWith(SpringRunner.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class RentalTransferRepositoryImplTest {
 
-
-    RentalTransfers rentalTransfers;
-    RentalTransferRepository repository;
+@Autowired
+    private RentalTransferRepository repository;
+    private RentalTransfers rentalTransfers;
 
     @Before
     public void setUp() throws Exception {

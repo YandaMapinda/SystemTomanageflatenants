@@ -1,12 +1,13 @@
 package property.tenant.manegement.repository.property.impl;
 
+import org.springframework.stereotype.Repository;
 import property.tenant.manegement.domain.property.Lease_Renewal;
 import property.tenant.manegement.repository.property.LeaseRenewalRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+@Repository("InLeaseRenewalMemory")
 public class LeaseRenewalRepositoryImpl implements LeaseRenewalRepository {
 
     private static LeaseRenewalRepositoryImpl repository = null;

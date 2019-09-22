@@ -3,18 +3,27 @@ package property.tenant.manegement.repository.accounting.report.impl;
 import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import property.tenant.manegement.domain.accounting.report.Receipts;
 import property.tenant.manegement.factory.accounts.ReceiptsFactory;
 import property.tenant.manegement.repository.accounting.report.ReceiptRepository;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-
+@SpringBootTest
+@RunWith(SpringRunner.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ReceiptRepositoryImplTest {
+@Autowired
 
-    private Receipts receipts;
     private ReceiptRepository repository;
+    private Receipts receipts;
 
     @Before
     public void setUp() throws Exception {

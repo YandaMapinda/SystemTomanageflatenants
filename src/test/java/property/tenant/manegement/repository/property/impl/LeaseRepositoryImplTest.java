@@ -4,7 +4,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import property.tenant.manegement.domain.property.Lease;
 import property.tenant.manegement.factory.property.LeaseFactory;
 import property.tenant.manegement.repository.property.LeaseRepository;
@@ -13,12 +17,14 @@ import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
-@FixMethodOrder(MethodSorters.JVM)
+@SpringBootTest
+@RunWith(SpringRunner.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class LeaseRepositoryImplTest {
 
-
-    private Lease lease;
+@Autowired
     private LeaseRepository repository;
+    private Lease lease;
 
     @Before
     public void setUp() throws Exception {

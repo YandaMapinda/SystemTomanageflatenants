@@ -1,12 +1,13 @@
 package property.tenant.manegement.repository.property.impl;
 
+import org.springframework.stereotype.Repository;
 import property.tenant.manegement.domain.property.Property;
 import property.tenant.manegement.repository.property.PropertyRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+@Repository("InPropertyMemory")
 public class PropertyRepositoryImpl implements PropertyRepository {
     private static PropertyRepositoryImpl repository = null;
 

@@ -1,12 +1,13 @@
 package property.tenant.manegement.repository.property.impl;
 
+import org.springframework.stereotype.Repository;
 import property.tenant.manegement.domain.property.Lease_Payments;
 import property.tenant.manegement.repository.property.LeasePaymentRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+@Repository("InLeasePaymentMemory")
 public class LeasePaymentRepositoryImpl implements LeasePaymentRepository {
     private static LeasePaymentRepositoryImpl repository = null;
 

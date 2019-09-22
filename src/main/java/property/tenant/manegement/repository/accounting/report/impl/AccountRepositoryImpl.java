@@ -6,7 +6,7 @@ import property.tenant.manegement.domain.accounting.report.Account;
 import property.tenant.manegement.repository.accounting.report.AccountRepository;
 
 import java.util.*;
-@Repository("InMemory")
+@Repository("InAccountMemory")
 public class AccountRepositoryImpl implements AccountRepository {
 
     private static AccountRepositoryImpl repository = null;

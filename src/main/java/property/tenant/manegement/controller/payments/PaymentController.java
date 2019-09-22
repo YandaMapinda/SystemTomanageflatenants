@@ -1,6 +1,7 @@
 package property.tenant.manegement.controller.payments;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import property.tenant.manegement.domain.payments.Payment;
 import property.tenant.manegement.factory.payment.PaymentFactory;
@@ -11,6 +12,7 @@ import java.util.Set;
 @RequestMapping("/SystemTomanageflatenants/payment")
 public class PaymentController {
     @Autowired
+    @Qualifier("ServicePaymentImpl")
     private PaymentServiceImpl service;
 
     @GetMapping("/create/{accountName}")

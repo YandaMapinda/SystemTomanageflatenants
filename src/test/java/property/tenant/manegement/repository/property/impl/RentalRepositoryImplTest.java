@@ -1,18 +1,26 @@
 package property.tenant.manegement.repository.property.impl;
 
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import property.tenant.manegement.domain.property.Rental;
 import property.tenant.manegement.factory.property.RentalFactory;
 import property.tenant.manegement.repository.property.RentalRepository;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-
+@SpringBootTest
+@RunWith(SpringRunner.class)
+@FixMethodOrder(MethodSorters.JVM)
 public class RentalRepositoryImplTest {
-
-    Rental rental;
+@Autowired
     RentalRepository repository;
+    Rental rental;
 
     @Before
     public void setUp() throws Exception {

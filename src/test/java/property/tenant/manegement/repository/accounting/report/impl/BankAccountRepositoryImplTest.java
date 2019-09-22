@@ -4,7 +4,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import property.tenant.manegement.domain.accounting.report.Bank_Accounts;
 import property.tenant.manegement.factory.accounts.Bank_AccountsFactory;
 import property.tenant.manegement.repository.accounting.report.BankAccountRepository;
@@ -13,10 +17,11 @@ import java.util.Set;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertNull;
-
+@SpringBootTest
+@RunWith(SpringRunner.class)
 @FixMethodOrder(MethodSorters.JVM)
 public class BankAccountRepositoryImplTest {
-
+@Autowired
     private BankAccountRepository repository;
     private Bank_Accounts accounts;
 

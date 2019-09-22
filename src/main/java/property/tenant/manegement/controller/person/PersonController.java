@@ -1,6 +1,7 @@
 package property.tenant.manegement.controller.person;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 import property.tenant.manegement.domain.person.Person;
 import property.tenant.manegement.factory.person.factory.PersonFactory;
@@ -11,6 +12,7 @@ import java.util.Set;
 @RequestMapping("/SystemTomanageflatenants/person")
 public class PersonController {
     @Autowired
+    @Qualifier("ServicePersonImpl")
     private PersonServiceImpl service;
 
     @GetMapping("/create/{name,surname,id}")

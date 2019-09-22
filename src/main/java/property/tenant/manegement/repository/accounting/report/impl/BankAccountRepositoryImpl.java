@@ -1,12 +1,13 @@
 package property.tenant.manegement.repository.accounting.report.impl;
 
+import org.springframework.stereotype.Repository;
 import property.tenant.manegement.domain.accounting.report.Bank_Accounts;
 import property.tenant.manegement.repository.accounting.report.BankAccountRepository;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+@Repository("InBankMemory")
 public class BankAccountRepositoryImpl implements BankAccountRepository {
 
     private static BankAccountRepositoryImpl repository = null;

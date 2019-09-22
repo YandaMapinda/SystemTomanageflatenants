@@ -2,7 +2,13 @@ package property.tenant.manegement.repository.payments.impl;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import property.tenant.manegement.domain.payments.Payment;
 import property.tenant.manegement.factory.payment.PaymentFactory;
 import property.tenant.manegement.repository.payments.PaymentRepository;
@@ -10,11 +16,13 @@ import property.tenant.manegement.repository.payments.PaymentRepository;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
-
+@SpringBootTest
+@RunWith(SpringRunner.class)
+@FixMethodOrder(MethodSorters.JVM)
 public class PaymentRepositoryImplTest {
-
-    private Payment payment;
+@Autowired
     PaymentRepository repository;
+    private Payment payment;
 
     @Before
     public void setUp() throws Exception {
