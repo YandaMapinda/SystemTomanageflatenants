@@ -1,5 +1,6 @@
 package property.tenant.manegement.repository.accounting.report.impl;
 
+
 import property.tenant.manegement.domain.accounting.report.Tenant_statement;
 import property.tenant.manegement.repository.accounting.report.TenantStatementRepository;
 

@@ -18,7 +18,7 @@ public class PropertyServiceImplTest {
     public void setUp() throws Exception {
 
         this.repository = PropertyRepositoryImpl.getInstance();
-        this.lease = PropertyFactory.getProperty("Ny 76 gugs","Ziyanda",56545);
+        this.lease = PropertyFactory.getProperty("Ny 76 gugs","Ziyanda");
     }
 
     @Test

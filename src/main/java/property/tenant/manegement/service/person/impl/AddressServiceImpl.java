@@ -10,7 +10,7 @@ import java.util.Set;
 @Service
 public class AddressServiceImpl implements AddressService {
 
-    private static AddressServiceImpl service = null;
+    private static AddressServiceImpl addressService = null;
     private AddressRepository repository;
 
     private AddressServiceImpl() {
@@ -18,8 +18,8 @@ public class AddressServiceImpl implements AddressService {
     }
 
     public static AddressServiceImpl getService(){
-        if (service == null) service = new AddressServiceImpl();
-        return service;
+        if (addressService == null) addressService = new AddressServiceImpl();
+        return addressService;
     }
     @Override
     public Set<Address> getAll() {
@@ -45,4 +45,8 @@ public class AddressServiceImpl implements AddressService {
     public Address read(String s) {
         return this.repository.read(s);
     }
+    public Address retrieveByDesc(String addDesc) {
+        return this.repository.retrieveByDesc(addDesc);
+    }
+
 }

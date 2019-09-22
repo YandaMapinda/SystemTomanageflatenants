@@ -23,6 +23,11 @@ public class PropertyRepositoryImpl implements PropertyRepository {
 
 
     @Override
+    public Property retrieveByDesc(String addDesc) {
+        return this.propertyMap.get(addDesc);
+    }
+
+    @Override
     public Set<Property> getAll() {
         return null;
     }

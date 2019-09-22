@@ -9,68 +9,54 @@ import java.util.*;
 public class InvoiceRepositoryImpl implements InvoiceRepository {
     private static InvoiceRepositoryImpl repository = null;
 
-   // private Map<String, Invoice> invoiceMap;
-   private Set<Invoice> invoiceMap;
-    private InvoiceRepositoryImpl(){
-        this.invoiceMap = new HashSet<>();
-    }
-  /*  private InvoiceRepositoryImpl() {
-        invoiceMap = new HashMap<String, Invoice>();
-    }*/
+   private Map<String, Invoice> invoiceMap;
 
-    private Invoice findCourse(String courseId) {
-        return this.invoiceMap.stream()
-                .filter(invoice -> invoice.getInvoiceId().trim().equals(courseId))
-                .findAny()
-                .orElse(null);
+   private InvoiceRepositoryImpl() {
+        invoiceMap = new HashMap<String, Invoice>();
     }
+
     public static InvoiceRepositoryImpl  getInstance(){
         if(repository == null) repository = new InvoiceRepositoryImpl();
         return repository;
     }
 
     public Set<Invoice> getAll() {
-        return this.invoiceMap;
+        Collection<Invoice> invoices = this.invoiceMap.values();
+        Set<Invoice> set = new HashSet<>();
+        set.addAll(invoices);
+        return set;
     }
 
 
     @Override
     public Invoice create(Invoice invoice) {
-       // invoiceMap.put(invoice.getInvoiceId(),invoice);
-       // Invoice savedA = invoiceMap.get(invoice.getInvoiceId());
-       // return savedA;
+        invoiceMap.put(invoice.getInvoiceId(),invoice);
+        Invoice savedA = invoiceMap.get(invoice.getInvoiceId());
+       return savedA;
 
-        this.invoiceMap.add(invoice);
-        return invoice;
+
     }
 
     @Override
     public Invoice update(Invoice invoice) {
-        //invoiceMap.put(invoice.getInvoiceId(),invoice);
-       // Invoice savedA = invoiceMap.get(invoice.getInvoiceId());
-       // return savedA;
+       invoiceMap.put(invoice.getInvoiceId(),invoice);
+       Invoice savedA = invoiceMap.get(invoice.getInvoiceId());
+       return savedA;
 
-        Invoice toDelete = findCourse(invoice.getInvoiceId());
-        if(toDelete != null) {
-            this.invoiceMap.remove(toDelete);
-            return create(invoice);
-        }
-        return null;
+
     }
 
     @Override
     public void delete(String s) {
-      //  invoiceMap.remove(s);
+        invoiceMap.remove(s);
 
-        Invoice course = findCourse(s);
-        if (course != null) this.invoiceMap.remove(course);
+       ;
     }
 
     @Override
     public Invoice read(String s) {
-       // Invoice invoice= invoiceMap.get(s);
-       // return invoice;
-        Invoice course = findCourse(s);
-        return course;
+       Invoice invoice= invoiceMap.get(s);
+       return invoice;
+
     }
 }

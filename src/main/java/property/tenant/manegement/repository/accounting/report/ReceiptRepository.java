@@ -1,5 +1,6 @@
 package property.tenant.manegement.repository.accounting.report;
 
+
 import property.tenant.manegement.domain.accounting.report.Receipts;
 import property.tenant.manegement.repository.IRepository;
 

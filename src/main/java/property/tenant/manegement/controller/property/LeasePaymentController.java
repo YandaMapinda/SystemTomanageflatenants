@@ -15,7 +15,7 @@ public class LeasePaymentController {
 
     @GetMapping("/create/{id}")
     public @ResponseBody
-    Lease_Payments create(@PathVariable int id){
+    Lease_Payments create(@PathVariable String id){
         Lease_Payments lease_payments = Lease_PaymentsFactory.getLease_Payments(id);
         return service.create(lease_payments);
     }

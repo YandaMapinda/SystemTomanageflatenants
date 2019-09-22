@@ -6,5 +6,8 @@ import property.tenant.manegement.service.IService;
 import java.util.Set;
 
 public interface PropertyService extends IService<Property, String> {
+    Property retrieveByDesc(String addDesc);
+
     Set<Property>getAll();
+
 }

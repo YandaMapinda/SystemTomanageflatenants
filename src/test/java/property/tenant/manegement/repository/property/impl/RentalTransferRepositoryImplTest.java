@@ -7,7 +7,7 @@ import property.tenant.manegement.domain.property.RentalTransfers;
 import property.tenant.manegement.factory.property.RentalTransfersFactory;
 import property.tenant.manegement.repository.property.RentalTransferRepository;
 
-import static org.apache.logging.log4j.util.LambdaUtil.getAll;
+import static com.sun.deploy.config.JREInfo.getAll;
 import static org.junit.Assert.assertEquals;
 
 public class RentalTransferRepositoryImplTest {
@@ -19,7 +19,7 @@ public class RentalTransferRepositoryImplTest {
     @Before
     public void setUp() throws Exception {
         this.repository = RentalTransferRepositoryImpl.getInstance();
-       this.rentalTransfers  = RentalTransfersFactory.getRentalTransfers(36784);
+       this.rentalTransfers  = RentalTransfersFactory.getRentalTransfers("gh567");
     }
 
     @Test

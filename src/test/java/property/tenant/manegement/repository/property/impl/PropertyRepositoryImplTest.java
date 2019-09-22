@@ -20,7 +20,7 @@ public class PropertyRepositoryImplTest {
     @Before
     public void setUp() throws Exception {
         this.repository = PropertyRepositoryImpl.getInstance();
-        this.property =  PropertyFactory.getProperty("savings","1234",787.9);
+        this.property =  PropertyFactory.getProperty("savings","1234");
     }
 
     @Test

@@ -23,6 +23,11 @@ public class PropertyServiceImpl implements PropertyService {
     }
 
     @Override
+    public Property retrieveByDesc(String addDesc) {
+        return this.repository.retrieveByDesc(addDesc);
+    }
+
+    @Override
     public Set<Property> getAll() {
         return this.repository.getAll();
     }

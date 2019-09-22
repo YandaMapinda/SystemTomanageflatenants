@@ -6,6 +6,6 @@ import property.tenant.manegement.util.Misc;
 public class Payment_TypeFactory {
     public static Payment_Type getPayment_Type(String payment_type_name){
         return new Payment_Type.Builder().payment_type_name(payment_type_name)
-                .account_id(Misc.generateId()).build();
+               .build();
     }
 }

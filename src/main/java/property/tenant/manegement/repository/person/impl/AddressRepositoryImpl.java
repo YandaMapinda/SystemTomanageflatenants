@@ -29,6 +29,11 @@ public class AddressRepositoryImpl implements AddressRepository {
     }
 
     @Override
+    public Address retrieveByDesc(String addDesc) {
+        return this.addressMap.get(addDesc);
+    }
+
+    @Override
     public Address create(Address address) {
         addressMap.put(address.getCity(),address);
         Address savedR = addressMap.get(address.getCity());

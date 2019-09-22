@@ -18,7 +18,7 @@ public class LeasePaymentServiceImplTest {
     public void setUp() throws Exception {
 
         this.repository = LeasePaymentRepositoryImpl.getInstance();
-        this.leasePayments = Lease_PaymentsFactory.getLease_Payments(78887);
+        this.leasePayments = Lease_PaymentsFactory.getLease_Payments("bh656");
     }
 
     @Test
